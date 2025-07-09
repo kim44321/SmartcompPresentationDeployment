@@ -1,0 +1,1527 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <!-- ============ swiper js css  ============ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- ============ odometer css  ============ -->
+    <link href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" rel="stylesheet" />
+    <!-- ============ aos css  ============ -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- ============ glightbox css ============ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <!-- Tabler Icons stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+    <!-- ============ site favicon  ============ -->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <title>Call Management - Smartcomp Solutions Inc.</title>
+    <style>
+      /* Custom styles for Call Management page */
+      :root {
+        --primary: #0062cc; /* Smartcomp blue */
+        --primary-rgb: 0, 98, 204;
+        --secondary: #ff6b35; /* Orange accent */
+        --secondary-rgb: 255, 107, 53;
+        --accent: #ffd166; /* Gold accent */
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --info: #3b82f6;
+        --border-radius: 8px;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
+          sans-serif;
+        color: #334155;
+        line-height: 1.6;
+      }
+
+      /* Call management pattern background */
+      .call-pattern {
+        background-color: var(--primary);
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+
+      /* Service card */
+      .service-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+        background: var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-card:hover::before {
+        width: 8px;
+      }
+
+      .service-card__icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(var(--primary-rgb), 0.1);
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Call flow diagram */
+      .call-flow-diagram {
+        position: relative;
+        height: 480px;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        padding: 2rem;
+      }
+
+      .flow-node {
+        position: absolute;
+        width: 120px;
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-weight: 500;
+        z-index: 2;
+      }
+
+      .flow-node.primary {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .flow-node.secondary {
+        background-color: var(--secondary);
+        color: white;
+      }
+
+      .flow-node.accent {
+        background-color: var(--accent);
+        color: var(--dark);
+      }
+
+      .flow-node.success {
+        background-color: var(--success);
+        color: white;
+      }
+
+      .flow-node-1 {
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .flow-node-2 {
+        top: 150px;
+        left: 20%;
+      }
+
+      .flow-node-3 {
+        top: 150px;
+        right: 20%;
+      }
+
+      .flow-node-4 {
+        top: 250px;
+        left: 30%;
+      }
+
+      .flow-node-5 {
+        top: 250px;
+        right: 30%;
+      }
+
+      .flow-node-6 {
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Feature box */
+      .feature-box {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+        transition: all 0.3s ease;
+        height: 100%;
+        border-left: 3px solid transparent;
+      }
+
+      .feature-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-left-color: var(--primary);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 12px;
+        background-color: rgba(var(--primary-rgb), 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-icon i {
+        color: var(--primary);
+        font-size: 1.75rem;
+      }
+
+      /* Process steps */
+      .process-steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .process-steps::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #e2e8f0;
+        z-index: 1;
+      }
+
+      .process-step {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        width: 20%;
+        padding: 0 1rem;
+      }
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: white;
+        border: 2px solid var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        position: relative;
+      }
+
+      .step-number::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: rgba(var(--primary-rgb), 0.1);
+        z-index: -1;
+      }
+
+      .process-step.active .step-number {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      /* Call metrics */
+      .call-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .metric-card {
+        flex: 1;
+        min-width: 200px;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .metric-value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .metric-label {
+        font-size: 1rem;
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      /* Call volume chart */
+      .call-volume-chart {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        height: 300px;
+        position: relative;
+      }
+
+      .chart-bars {
+        display: flex;
+        align-items: flex-end;
+        height: 200px;
+        gap: 1rem;
+        padding-top: 2rem;
+      }
+
+      .chart-bar {
+        flex: 1;
+        background-color: rgba(var(--primary-rgb), 0.7);
+        border-radius: 4px 4px 0 0;
+        position: relative;
+      }
+
+      .chart-bar::before {
+        content: attr(data-value);
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .chart-bar::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.875rem;
+        color: var(--dark);
+      }
+
+      .chart-bar:nth-child(even) {
+        background-color: rgba(var(--secondary-rgb), 0.7);
+      }
+
+      .chart-bar:nth-child(even)::before {
+        color: var(--secondary);
+      }
+
+      /* Dashboard card */
+      .dashboard-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .dashboard-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .dashboard-body {
+        padding: 1.5rem;
+      }
+
+      .dashboard-stat {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      .dashboard-stat:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+
+      .stat-icon.success {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+      }
+
+      .stat-icon.warning {
+        background-color: rgba(245, 158, 11, 0.1);
+        color: var(--warning);
+      }
+
+      .stat-icon.danger {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: var(--danger);
+      }
+
+      .stat-icon.primary {
+        background-color: rgba(var(--primary-rgb), 0.1);
+        color: var(--primary);
+      }
+
+      .stat-info {
+        flex-grow: 1;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      /* Stats counter */
+      .stats-counter {
+        text-align: center;
+        padding: 2rem;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .stats-counter:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .stats-counter .counter-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .stats-counter p {
+        color: var(--dark); /* or you can use a specific color like #334155 */
+      }
+
+      /* Contact form */
+      .contact-form {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: var(--border-radius);
+        transition:
+          border-color 0.15s ease-in-out,
+          box-shadow 0.15s ease-in-out;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(var(--primary-rgb), 0.25);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        border: 1px solid transparent;
+        border-radius: var(--border-radius);
+        transition: all 0.15s ease-in-out;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: var(--primary);
+        border-color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        background-color: #0051a8;
+        border-color: #0051a8;
+      }
+
+      .btn-secondary {
+        color: #fff;
+        background-color: var(--secondary);
+        border-color: var(--secondary);
+      }
+
+      .btn-secondary:hover {
+        background-color: #e55a29;
+        border-color: #e55a29;
+      }
+
+      .btn-outline {
+        color: var(--primary);
+        background-color: transparent;
+        border: 1px solid var(--primary);
+      }
+
+      .btn-outline:hover {
+        color: white;
+        background-color: var(--primary);
+      }
+
+      /* Section title */
+      .section-title {
+        position: relative;
+        margin-bottom: 2.5rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background-color: var(--primary);
+      }
+
+      .section-title.text-center::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Service tag */
+      .service-tag {
+        display: inline-block;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 30px;
+        color: white;
+        background-color: var(--secondary);
+        margin-bottom: 1rem;
+      }
+
+      /* Call management features */
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .feature-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-item-icon {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgba(var(--primary-rgb), 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+      }
+
+      .feature-item-icon i {
+        color: var(--primary);
+        font-size: 1.5rem;
+      }
+
+      /* Ticket system */
+      .ticket-system {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+      }
+
+      .ticket-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 1.5rem;
+      }
+
+      .ticket-body {
+        padding: 1.5rem;
+      }
+
+      .ticket-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .ticket-item {
+        padding: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .ticket-item:last-child {
+        border-bottom: none;
+      }
+
+      .ticket-item:hover {
+        background-color: #f8fafc;
+      }
+
+      .ticket-status {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 1rem;
+        flex-shrink: 0;
+      }
+
+      .ticket-status.open {
+        background-color: var(--warning);
+      }
+
+      .ticket-status.in-progress {
+        background-color: var(--info);
+      }
+
+      .ticket-status.resolved {
+        background-color: var(--success);
+      }
+
+      .ticket-info {
+        flex-grow: 1;
+      }
+
+      .ticket-id {
+        font-size: 0.875rem;
+        color: #64748b;
+      }
+
+      .ticket-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .ticket-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 0.875rem;
+        color: #64748b;
+      }
+
+      /* Call center agent */
+      .agent-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .agent-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .agent-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .agent-body {
+        padding: 1.5rem;
+      }
+
+      .agent-status {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .agent-status.available {
+        background-color: rgba(16, 185, 129, 0.1);
+        color: var(--success);
+      }
+
+      .agent-status.busy {
+        background-color: rgba(245, 158, 11, 0.1);
+        color: var(--warning);
+      }
+
+      .agent-status.offline {
+        background-color: rgba(239, 68, 68, 0.1);
+        color: var(--danger);
+      }
+
+      .agent-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .agent-stat {
+        text-align: center;
+      }
+
+      .agent-stat-value {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .agent-stat-label {
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+    </style>
+  </head>
+
+  <body class="relative text-base text-title lg:text-lg">
+    <!-- scroll top -->
+    <include-scroll-top />
+    <!-- Header Top -->
+    <include-inner-pages-header-top />
+    <!-- Mobile Nav -->
+    <include-mobile-nav />
+    <!-- Desktop Nav -->
+    <include-inner-pages-desktop-nav />
+
+    <!-- ========== Hero Section ============ -->
+    <section class="call-pattern mt-[71px] py-20 md:mt-[87px] xl:mt-0">
+      <div class="container relative z-10">
+        <div class="grid grid-cols-12 items-center gap-8">
+          <div class="col-span-12 lg:col-span-6">
+            <span class="service-tag">Call Management Solutions</span>
+            <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl">Efficient Call Handling & Support</h1>
+            <p class="mb-8 text-xl text-white opacity-90">Smartcomp Solutions provides comprehensive call management services with 24/7 helpdesk support, ticket tracking, and nationwide technical assistance.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#services" class="btn btn-secondary">
+                Explore Our Services
+                <i class="ti ti-arrow-right ml-2"></i>
+              </a>
+              <a href="#contact" class="btn btn-outline border-white text-white hover:bg-white hover:text-primary"> Contact Us </a>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Introduction Section ============ -->
+    <section class="bg-light py-16">
+      <div class="container">
+        <div class="grid grid-cols-12 items-center gap-8">
+          <div class="col-span-12 lg:col-span-6">
+            <h2 class="section-title text-3xl font-bold">Comprehensive Call Management</h2>
+            <p class="text-gray-700 mb-6">At Smartcomp Solutions, we provide dedicated IT support helpdesk services for nationwide stores, ensuring efficient call handling and issue resolution. Our team manages and monitors tickets, resolves issues remotely, and coordinates on-site support when needed.</p>
+            <p class="text-gray-700 mb-6">With over 125 Customer Service Engineers across the Philippines, we deliver prompt technical assistance regardless of your location, maintaining high service standards and minimizing downtime for your business operations.</p>
+
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              <div class="feature-box">
+                <div class="feature-icon">
+                  <i class="ti ti-headset"></i>
+                </div>
+                <h3 class="mb-2 text-lg font-bold">24/7 Helpdesk Support</h3>
+                <p class="text-gray-600">Round-the-clock assistance for all your technical support needs with dedicated support agents.</p>
+              </div>
+
+              <div class="feature-box">
+                <div class="feature-icon">
+                  <i class="ti ti-ticket"></i>
+                </div>
+                <h3 class="mb-2 text-lg font-bold">Ticket Management</h3>
+                <p class="text-gray-600">Efficient tracking and resolution of support tickets with priority-based handling.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-6">
+            <div class="call-flow-diagram">
+              <div class="flow-node primary flow-node-1">Support Request</div>
+
+              <div class="flow-node secondary flow-node-2">Ticket Creation</div>
+
+              <div class="flow-node secondary flow-node-3">Priority Assignment</div>
+
+              <div class="flow-node accent flow-node-4">Remote Support</div>
+
+              <div class="flow-node accent flow-node-5">On-site Support</div>
+
+              <div class="flow-node success flow-node-6">Issue Resolution</div>
+
+              <!-- Connection lines would be added with JavaScript in a real implementation -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Key Statistics ============ -->
+    <section class="bg-dark py-16 text-white">
+      <div class="container">
+        <div class="mb-12 text-center">
+          <h2 class="section-title text-center text-3xl font-bold text-white">Our Support Impact</h2>
+          <p class="mx-auto max-w-3xl opacity-80">Delivering reliable technical support services across the Philippines</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
+          <div class="stats-counter">
+            <i class="ti ti-users mb-4 text-4xl text-primary"></i>
+            <div class="counter-number" data-count="125">125+</div>
+            <p class="font-medium">Customer Service Engineers</p>
+          </div>
+
+          <div class="stats-counter">
+            <i class="ti ti-map-pin mb-4 text-4xl text-primary"></i>
+            <div class="counter-number" data-count="50">50+</div>
+            <p class="font-medium">Locations Nationwide</p>
+          </div>
+
+          <div class="stats-counter">
+            <i class="ti ti-ticket mb-4 text-4xl text-primary"></i>
+            <div class="counter-number" data-count="5000">5,000+</div>
+            <p class="font-medium">Monthly Support Tickets</p>
+          </div>
+
+          <div class="stats-counter">
+            <i class="ti ti-clock mb-4 text-4xl text-primary"></i>
+            <div class="counter-number" data-count="98">98%</div>
+            <p class="font-medium">Resolution Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Core Services ============ -->
+    <section id="services" class="bg-white py-16">
+      <div class="container">
+        <div class="mb-12 text-center">
+          <h2 class="section-title text-center text-3xl font-bold">Our Call Management Services</h2>
+          <p class="text-gray-600 mx-auto max-w-3xl">Comprehensive solutions to handle your technical support needs efficiently</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-headset text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Helpdesk Support</h3>
+              <p class="text-gray-600 mb-4">Our dedicated IT support helpdesk team provides nationwide assistance for all stores. We assign and monitor tickets, resolve issues remotely, and perform daily system monitoring tasks.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>24/7 ticket management system</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Remote troubleshooting</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>System monitoring</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Issue escalation and tracking</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-device-laptop text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Remote Support</h3>
+              <p class="text-gray-600 mb-4">Our team resolves issues through remote access and phone support, helping with network connection issues, project monitoring, and equipment troubleshooting without disrupting your workplace.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Secure remote access</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Network troubleshooting</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Software configuration</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Third-party coordination</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-tool text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">On-site Support</h3>
+              <p class="text-gray-600 mb-4">When remote assistance isn't enough, our technicians provide hands-on support at your location for hardware issues, network setup, and complex system installations or migrations.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Hardware troubleshooting</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Network installation</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Preventive maintenance</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Emergency response</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-ticket text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Ticket Management</h3>
+              <p class="text-gray-600 mb-4">Efficient tracking and management of support tickets with priority-based handling and escalation procedures to ensure timely resolution of all issues.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Priority-based ticket handling</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Automated ticket assignment</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>SLA monitoring</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Resolution tracking</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-report-analytics text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Performance Reporting</h3>
+              <p class="text-gray-600 mb-4">Comprehensive reporting on support metrics, ticket resolution times, and service level agreement compliance to help optimize your technical support operations.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Custom report generation</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Resolution time analysis</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Issue trend identification</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Performance improvement recommendations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-calendar-time text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Scheduled Maintenance</h3>
+              <p class="text-gray-600 mb-4">Planned preventive maintenance services to keep your systems running smoothly and prevent potential issues before they impact your business operations.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Regular system checks</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Hardware maintenance</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Software updates</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Performance optimization</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Support Process ============ -->
+    <section class="bg-light py-16">
+      <div class="container">
+        <div class="mb-12 text-center">
+          <h2 class="section-title text-center text-3xl font-bold">Our Support Process</h2>
+          <p class="text-gray-600 mx-auto max-w-3xl">A structured approach to handling your technical support needs</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step active">
+            <div class="step-number">1</div>
+            <h3 class="mb-2 text-lg font-bold">Ticket Creation</h3>
+            <p class="text-gray-600">Issue reported and ticket created in our system</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3 class="mb-2 text-lg font-bold">Assessment</h3>
+            <p class="text-gray-600">Problem evaluation and priority assignment</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3 class="mb-2 text-lg font-bold">Remote Support</h3>
+            <p class="text-gray-600">Initial troubleshooting via remote access</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3 class="mb-2 text-lg font-bold">On-site Visit</h3>
+            <p class="text-gray-600">Field engineer dispatch if needed</p>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">5</div>
+            <h3 class="mb-2 text-lg font-bold">Resolution</h3>
+            <p class="text-gray-600">Issue fixed and verified with client</p>
+          </div>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div>
+            <h3 class="mb-6 text-2xl font-bold">Key Benefits of Our Call Management</h3>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-item-icon">
+                  <i class="ti ti-clock"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1 text-lg font-bold">Faster Resolution Times</h4>
+                  <p class="text-gray-600">Our streamlined process and nationwide team of engineers ensure quick response and resolution of technical issues, minimizing downtime for your business.</p>
+                </div>
+              </li>
+
+              <li class="feature-item">
+                <div class="feature-item-icon">
+                  <i class="ti ti-chart-bar"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1 text-lg font-bold">Improved Accountability</h4>
+                  <p class="text-gray-600">Our ticket management system provides complete transparency and tracking of all support requests, ensuring nothing falls through the cracks.</p>
+                </div>
+              </li>
+
+              <li class="feature-item">
+                <div class="feature-item-icon">
+                  <i class="ti ti-map"></i>
+                </div>
+                <div>
+                  <h4 class="mb-1 text-lg font-bold">Nationwide Coverage</h4>
+                  <p class="text-gray-600">With engineers stationed across the Philippines, we provide consistent support quality regardless of your location, from major cities to remote areas.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="dashboard-card">
+              <div class="dashboard-header">
+                <h3 class="text-lg font-bold">Support Performance</h3>
+                <span class="rounded bg-success px-2 py-1 text-xs text-white">Live</span>
+              </div>
+              <div class="dashboard-body">
+                <div class="dashboard-stat">
+                  <div class="stat-icon success">
+                    <i class="ti ti-clock"></i>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-value">4-8 hours</div>
+                    <p class="text-gray-600">Average Response Time</p>
+                  </div>
+                </div>
+
+                <div class="dashboard-stat">
+                  <div class="stat-icon primary">
+                    <i class="ti ti-ticket"></i>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-value">98%</div>
+                    <p class="text-gray-600">Ticket Resolution Rate</p>
+                  </div>
+                </div>
+
+                <div class="dashboard-stat">
+                  <div class="stat-icon warning">
+                    <i class="ti ti-users"></i>
+                  </div>
+                  <div class="stat-info">
+                    <div class="stat-value">125+</div>
+                    <p class="text-gray-600">Field Engineers Available</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              <div class="agent-card">
+                <div class="agent-header">
+                  <h4 class="font-bold">Metro Manila</h4>
+                </div>
+                <div class="agent-body">
+                  <span class="agent-status available">Available</span>
+                  <h5 class="font-bold">Response Time</h5>
+                  <p class="text-gray-600 mb-4">2-4 hours</p>
+                  <div class="agent-stats">
+                    <div class="agent-stat">
+                      <div class="agent-stat-value">35</div>
+                      <div class="agent-stat-label">Engineers</div>
+                    </div>
+                    <div class="agent-stat">
+                      <div class="agent-stat-value">24/7</div>
+                      <div class="agent-stat-label">Coverage</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="agent-card">
+                <div class="agent-header">
+                  <h4 class="font-bold">Provincial Areas</h4>
+                </div>
+                <div class="agent-body">
+                  <span class="agent-status available">Available</span>
+                  <h5 class="font-bold">Response Time</h5>
+                  <p class="text-gray-600 mb-4">4-8 hours (cities)<br />24-48 hours (remote)</p>
+                  <div class="agent-stats">
+                    <div class="agent-stat">
+                      <div class="agent-stat-value">90+</div>
+                      <div class="agent-stat-label">Engineers</div>
+                    </div>
+                    <div class="agent-stat">
+                      <div class="agent-stat-value">50+</div>
+                      <div class="agent-stat-label">Locations</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Specialized Support ============ -->
+    <section class="bg-white py-16">
+      <div class="container">
+        <div class="mb-12 text-center">
+          <h2 class="section-title text-center text-3xl font-bold">Specialized Support Services</h2>
+          <p class="text-gray-600 mx-auto max-w-3xl">Industry-specific technical support solutions tailored to your business needs</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <!-- Support 1 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-building-bank text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Banking Support</h3>
+              <p class="text-gray-600 mb-4">Specialized support for banking operations including ATMs, cash handling systems, and branch infrastructure with high security standards.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>ATM troubleshooting and maintenance</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Cash handling systems support</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Kiosk machine maintenance</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Branch infrastructure support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Support 2 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-building-store text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Retail Support</h3>
+              <p class="text-gray-600 mb-4">Comprehensive support for retail operations including POS systems, kiosks, and back-office equipment to keep your business running smoothly.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>POS maintenance (12,000+ nationwide)</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Self-checkout counter support</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Back office PC and server maintenance</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Inventory system support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Support 3 -->
+          <div class="service-card">
+            <div class="p-6">
+              <div class="service-card__icon">
+                <i class="ti ti-server text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-3 text-xl font-bold">Enterprise Support</h3>
+              <p class="text-gray-600 mb-4">Comprehensive IT infrastructure support for large organizations and government agencies with complex technical requirements.</p>
+              <ul class="mb-4 space-y-3">
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Server and storage maintenance</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Network infrastructure support</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Resident engineers for major clients</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="ti ti-check mr-2 text-primary"></i>
+                  <span>Custom support solutions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Nationwide Coverage ============ -->
+    <!-- <section class="bg-light py-16">
+      <div class="container">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <h2 class="section-title text-3xl font-bold">Nationwide Coverage</h2>
+            <p class="mb-6">Our team of 125+ Customer Service Engineers provides technical support services across the Philippines, ensuring prompt assistance no matter where your business is located.</p>
+
+            <div class="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div class="coverage-region">
+                <h4 class="mb-2 font-bold text-primary">Luzon</h4>
+                <ul class="space-y-1">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Metro Manila</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Cavite, Laguna, Batangas</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Bulacan, Pampanga</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Rizal, Quezon Province</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="coverage-region">
+                <h4 class="mb-2 font-bold text-primary">Visayas</h4>
+                <ul class="space-y-1">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Cebu, Bohol</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Iloilo, Capiz</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Negros Oriental & Occidental</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Leyte, Aklan</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="coverage-region">
+                <h4 class="mb-2 font-bold text-primary">Mindanao</h4>
+                <ul class="space-y-1">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Davao, General Santos</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Cagayan de Oro, Bukidnon</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Zamboanga, Cotabato</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-map-pin text-primary"></i>
+                    <span>Agusan del Norte & Sur</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="coverage-region">
+                <h4 class="mb-2 font-bold text-primary">Response Times</h4>
+                <ul class="space-y-1">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-clock text-primary"></i>
+                    <span>Metro Manila: 2-4 hours</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-clock text-primary"></i>
+                    <span>Provincial Cities: 4-8 hours</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-clock text-primary"></i>
+                    <span>Remote Areas: 24-48 hours</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="rounded-lg bg-primary p-6 text-white shadow-md">
+              <h3 class="mb-4 text-xl font-bold">Emergency Support</h3>
+              <p class="mb-4 opacity-90">Experiencing critical system issues? Our emergency support team is available 24/7.</p>
+              <div class="flex items-center">
+                <i class="ti ti-phone-call text-accent mr-3 text-2xl"></i>
+                <div>
+                  <p class="font-medium">Emergency Support Hotline</p>
+                  <a href="tel:+6325310-3234" class="text-accent text-xl font-bold hover:underline">(02) 5310-3234</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="coverage-map">
+              <img src="./assets/images/philippines-map.png" alt="Philippines Coverage Map" class="h-auto w-full rounded-lg" />
+              <div class="absolute right-4 top-4 rounded-lg bg-white p-3 shadow-md">
+                <div class="mb-2 flex items-center gap-2">
+                  <span class="h-4 w-4 rounded-full bg-primary"></span>
+                  <span class="text-sm">Major Support Hubs</span>
+                </div>
+                <div class="mb-2 flex items-center gap-2">
+                  <span class="h-4 w-4 rounded-full bg-secondary"></span>
+                  <span class="text-sm">Service Centers</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="h-4 w-4 rounded-full bg-success"></span>
+                  <span class="text-sm">Partner Locations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ========== Contact Section ============ -->
+    <include-contact />
+
+    <!-- =========== footer ============ -->
+    <include-footer />
+
+    <!-- ============ swiper plugin js ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- ============ glightbox js ============ -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <!-- ============ aos js ============ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- ============ emailjs plugin js ============ -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <!-- ============ odometer plugin js ============ -->
+    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
+    <!-- ============= main js ============ -->
+    <script src="./assets/js/main.js"></script>
+    <!-- ============= custom js ============ -->
+    <script>
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Initialize GLightbox for image popups
+      const lightbox = GLightbox({
+        selector: ".glightbox",
+        touchNavigation: true,
+        loop: true,
+      });
+
+      // Counter animation for stats
+      document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".counter-number");
+
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute("data-count"));
+          const od = new Odometer({
+            el: counter,
+            value: 0,
+            format: "",
+          });
+
+          setTimeout(() => {
+            od.update(target);
+          }, 500);
+        });
+      });
+    </script>
+    <script src="./assets/js/flow-diagram.js"></script>
+  </body>
+</html>

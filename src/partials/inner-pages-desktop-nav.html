@@ -1,0 +1,70 @@
+<div class="sticky top-0 z-30 hidden bg-n8 py-2.5 shadow-xl xl:block">
+  <div class="container flex items-center justify-between">
+    <a href="index.html">
+      <img height="214" width="80" src="./assets/images/logo.png" alt="logo" />
+    </a>
+    <div class="hidden items-center gap-3 xl:flex">
+      <ul class="relative flex gap-2">
+        <li class="group relative cursor-pointer px-5 py-2.5">
+          <a href="/">
+            <span class="flex items-center duration-300 hover:text-secondary">
+              <span class="font-medium">Home</span>
+              <!-- <i class="ti ti-chevron-down"></i> -->
+            </span>
+          </a>
+          <!-- <include-home-pages-ul /> -->
+        </li>
+        <!-- <li class="group relative cursor-pointer px-5 py-2.5">
+          <span class="flex items-center duration-300 hover:text-secondary">
+            <span class="font-medium">Blogs</span>
+            <i class="ti ti-chevron-down"></i>
+          </span>
+          <include-blog-pages-ul />
+        </li> -->
+        <li class="group relative cursor-pointer px-5 py-2.5">
+          <span class="flex items-center duration-300 hover:text-secondary">
+            <span class="font-medium">Services</span>
+            <i class="ti ti-chevron-down"></i>
+          </span>
+          <include-service-pages-ul />
+        </li>
+        <li class="group relative cursor-pointer px-5 py-2.5">
+          <span class="flex items-center duration-300 hover:text-secondary">
+            <span class="font-medium">Products</span>
+            <i class="ti ti-chevron-down"></i>
+          </span>
+          <include-product-pages-ul />
+        </li>
+        <li class="group relative cursor-pointer px-5 py-2.5">
+          <a class="font-medium duration-300 hover:text-secondary" href="contact.html">Contact Us</a>
+        </li>
+        <!-- <li class="group relative cursor-pointer px-3 py-2.5">
+          <span class="flex items-center duration-300 hover:text-secondary">
+            <span class="font-medium">Pages</span>
+            <i class="ti ti-chevron-down text-[24px]"></i>
+          </span>
+          <include-other-pages-ul />
+        </li> -->
+      </ul>
+      <div class="hidden items-center gap-5 xl:flex">
+        <button class="nav-bar-search-btn flex items-center justify-center rounded-full bg-primary/10 p-2 text-primary">
+          <i class="ti ti-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="searchBar" class="absolute left-0 right-0 top-0 z-30 w-full -translate-y-[200%] bg-n8 py-5 shadow-lg duration-500 xl:py-9">
+    <div class="container">
+      <form class="mx-auto flex max-w-[80%] flex-wrap items-center justify-between gap-4 md:flex-nowrap md:gap-6 xxl:max-w-full">
+        <div class="flex grow items-center gap-2 rounded-[30px] border border-n6 bg-light px-7 py-3">
+          <i class="ti ti-search text-n4"></i>
+          <input type="text" class="w-full bg-transparent focus:outline-none" placeholder="Write something to search...." />
+        </div>
+        <button class="btn-primary shrink-0">Search</button>
+      </form>
+      <span class="nav-bar-search-btn-close absolute right-8 top-[40%] h-full cursor-pointer">
+        <i class="ti ti-x"></i>
+      </span>
+    </div>
+  </div>
+</div>

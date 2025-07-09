@@ -1,0 +1,57 @@
+//scrollbar Section
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+  height: 2px;
+  background: #5c6b52;
+  position: initial;
+  border-radius: 0;
+  width: 10px;
+}
+.swiper-scrollbar .swiper-scrollbar-drag {
+  background: #a47d00;
+  height: 5px;
+  border-radius: 0;
+  top: -2px;
+}
+
+.swiper-scrollbar-crypto-assets.swiper-scrollbar-horizontal {
+  height: 2px;
+  background: #5c6b52;
+  position: initial;
+  border-radius: 0;
+  width: 10px;
+}
+
+.swiper-scrollbar-vertical {
+  height: 4px;
+  background: rgb(86, 58, 255, 0.1);
+
+  border-radius: 0;
+  width: 200px;
+//   @media (max-width: 1400px) {
+//     height: 300px;
+//   }
+//   @media (max-width: 992px) {
+//     height: 200px;
+//   }
+}
+
+.swiper-scrollbar-vertical .swiper-scrollbar-drag {
+  background: #563aff;
+  width: auto;
+  width: 5px;
+  border-radius: 0;
+  left: -1px;
+}
+
+.bikeworking-wrap {
+//   max-height: 590px;
+  //   @media (max-width: 1400px) {
+  //     max-height: 400px;
+  //   }
+  //   @media (max-width: 992px) {
+  //     max-height: 320px;
+  //   }
+  //   @media (max-width: 768px) {
+  //     max-height: 600px;
+  //   }
+}

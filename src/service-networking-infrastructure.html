@@ -1,0 +1,837 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>Networking & Infrastructure - Smartcomp Solutions Inc.</title>
+    <style>
+      :root {
+        --primary: #0062cc;
+        --primary-rgb: 0, 98, 204;
+        --secondary: #ff6b35;
+        --secondary-rgb: 255, 107, 53;
+        --accent: #ffd166;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --success: #10b981;
+        --border-radius: 8px;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #334155;
+        line-height: 1.6;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, var(--primary) 0%, #004999 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 120px 0 80px;
+      }
+
+      .network-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+
+      /* Service Cards */
+      .service-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        border-top: 4px solid var(--primary);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-top-color: var(--secondary);
+      }
+
+      .service-card__icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-card__icon {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        transform: scale(1.1);
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        border-left: 4px solid var(--primary);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-left-color: var(--secondary);
+      }
+
+      /* Process Steps */
+      .process-step {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .process-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin: 0 auto 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .process-step:hover .step-number {
+        transform: scale(1.1);
+      }
+
+      /* Network Topology Diagram */
+      .topology-diagram {
+        position: relative;
+        height: 400px;
+        background: var(--dark);
+        border-radius: 12px;
+        overflow: hidden;
+        padding: 2rem;
+      }
+
+      .topology-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+
+      .topology-node {
+        position: absolute;
+        padding: 1rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        max-width: 150px;
+        text-align: center;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .topology-node:hover {
+        transform: scale(1.05);
+      }
+
+      .topology-node.primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .topology-node.secondary {
+        background: var(--secondary);
+        color: white;
+      }
+
+      .topology-node.accent {
+        background: var(--accent);
+        color: var(--dark);
+      }
+
+      .topology-node-1 {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .topology-node-2 {
+        top: 25%;
+        left: 25%;
+      }
+
+      .topology-node-3 {
+        top: 25%;
+        right: 25%;
+      }
+
+      .topology-node-4 {
+        bottom: 25%;
+        left: 25%;
+      }
+
+      .topology-node-5 {
+        bottom: 25%;
+        right: 25%;
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background: #0051a8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 98, 204, 0.3);
+      }
+
+      .btn-secondary {
+        background: var(--secondary);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background: #e55a29;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: var(--primary);
+      }
+
+      /* Badge */
+      .badge {
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .badge-primary {
+        background: rgba(var(--primary-rgb), 0.1);
+        color: var(--primary);
+      }
+
+      .badge-secondary {
+        background: rgba(var(--secondary-rgb), 0.1);
+        color: var(--secondary);
+      }
+
+      /* Section Titles */
+      .section-title {
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        border-radius: 2px;
+      }
+
+      .section-title.text-center::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 100px 0 60px;
+        }
+        
+        .section-title {
+          text-align: center;
+        }
+
+        .section-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header components -->
+    <include-scroll-top />
+    <include-inner-pages-header-top />
+    <include-mobile-nav />
+    <include-inner-pages-desktop-nav />
+
+    <!-- Hero Section -->
+    <section class="hero-section mt-[71px] md:mt-[87px] xl:mt-0">
+      <div class="network-pattern"></div>
+      <div class="container relative z-10">
+        <div class="grid grid-cols-12 items-center gap-8">
+          <div class="col-span-12 lg:col-span-6">
+            <span class="badge badge-secondary">Networking & Infrastructure</span>
+            <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">Building Robust Network Foundations</h1>
+            <p class="mb-8 text-xl text-white/90 max-w-3xl">We provide structured cabling, network design, and infrastructure solutions to create reliable connectivity for your business operations nationwide.</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#services" class="btn-secondary">
+                Explore Services
+                <i class="ti ti-arrow-right"></i>
+              </a>
+              <a href="#contact" class="btn-outline">
+                Get Quote
+                <i class="ti ti-network"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-6">
+            <div class="topology-diagram">
+              <div class="topology-grid"></div>
+              <div class="topology-node primary topology-node-1">Core Network</div>
+              <div class="topology-node secondary topology-node-2">Switches</div>
+              <div class="topology-node secondary topology-node-3">Routers</div>
+              <div class="topology-node accent topology-node-4">Workstations</div>
+              <div class="topology-node accent topology-node-5">Servers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Networking Services -->
+    <section id="services" class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <span class="badge badge-primary">Core Services</span>
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Our Networking Services</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">Comprehensive networking solutions to keep your business connected and productive with reliable infrastructure.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mb-16">
+          <!-- Structured Cabling -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-cable text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Structured Cabling</h3>
+              <p class="text-gray-600 mb-6">Professional design and installation of organized, standards-compliant cabling systems that form the foundation of your network infrastructure.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Data and electrical in-house wiring</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Fiber optic installation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Cable management & labeling</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Patch panel installation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Network Design -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-network text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Network Design & Implementation</h3>
+              <p class="text-gray-600 mb-6">Expert planning and deployment of network infrastructure tailored to your business needs, ensuring optimal performance and scalability.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Network architecture design</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Router & switch configuration</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Wireless network deployment</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Network performance optimization</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Network Troubleshooting -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-tool text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Network Troubleshooting</h3>
+              <p class="text-gray-600 mb-6">Rapid diagnosis and resolution of network issues to minimize downtime and ensure continuous business operations.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Connectivity issue resolution</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Performance optimization</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Network monitoring</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Hardware diagnostics</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Wireless Networking -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-wifi text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Wireless Networking</h3>
+              <p class="text-gray-600 mb-6">Design and implementation of wireless network solutions that provide flexibility, mobility, and coverage for your business environment.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Wireless site surveys</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Access point installation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Wireless controller configuration</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>5G router installation and support</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Infrastructure Setup -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-building text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Infrastructure Setup</h3>
+              <p class="text-gray-600 mb-6">Complete infrastructure solutions for offices and branches, including network installations and equipment setup.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Structured cabling and pull box installation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Network equipment installation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Server room setup</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Equipment configuration and testing</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Network Maintenance -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-settings text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Network Maintenance</h3>
+              <p class="text-gray-600 mb-6">Ongoing maintenance and support services to keep your network infrastructure running optimally and prevent issues.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Preventive maintenance schedules</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Firmware updates and patches</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Hardware health monitoring</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Performance reporting</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="#contact" class="btn-primary">
+            Request Network Solutions Quote
+            <i class="ti ti-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Implementation Process -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <span class="badge badge-secondary">Implementation Process</span>
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">How We Implement Your Network</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">Our structured methodology ensures successful network deployments that meet your business requirements while minimizing disruption.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">1</div>
+            <h3 class="text-xl font-bold mb-3">Assessment & Discovery</h3>
+            <p class="text-gray-600">We thoroughly understand your business needs, existing infrastructure, and future growth plans to create a comprehensive network strategy.</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">2</div>
+            <h3 class="text-xl font-bold mb-3">Design & Planning</h3>
+            <p class="text-gray-600">Our engineers develop detailed network architecture designs, including hardware specifications, topology diagrams, and implementation timelines.</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-number">3</div>
+            <h3 class="text-xl font-bold mb-3">Implementation</h3>
+            <p class="text-gray-600">We execute the network deployment according to the approved design, with careful attention to industry best practices and minimal business disruption.</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-number">4</div>
+            <h3 class="text-xl font-bold mb-3">Testing & Validation</h3>
+            <p class="text-gray-600">Comprehensive testing of all network components and connections to ensure optimal performance and reliability before final handover.</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="500">
+            <div class="step-number">5</div>
+            <h3 class="text-xl font-bold mb-3">Documentation & Training</h3>
+            <p class="text-gray-600">We provide detailed network documentation and conduct knowledge transfer sessions to ensure your team understands the new infrastructure.</p>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="600">
+            <div class="step-number">6</div>
+            <h3 class="text-xl font-bold mb-3">Ongoing Support</h3>
+            <p class="text-gray-600">Proactive monitoring, maintenance, and optimization of your network to ensure it continues to meet your evolving business needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industry Solutions -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <span class="badge badge-primary">Industry Solutions</span>
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Tailored Network Solutions</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">Specialized networking infrastructure designed for different business environments and industry requirements.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-building-bank text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Banking & Financial Networks</h3>
+                <p class="text-gray-600 mb-4">Secure, reliable networking infrastructure for banking facilities, supporting ATMs, cash handling systems, and branch operations.</p>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>High-security network design</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>ATM connectivity solutions</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Branch network integration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-building-store text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Retail Networks</h3>
+                <p class="text-gray-600 mb-4">Comprehensive networking solutions for retail environments, including POS connectivity and inventory management systems.</p>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>POS system connectivity</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Inventory system integration</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Customer Wi-Fi solutions</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-building text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Enterprise Networks</h3>
+                <p class="text-gray-600 mb-4">Scalable, high-performance network infrastructure for large organizations, supporting complex business operations and multiple locations.</p>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Multi-site connectivity</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Scalable architecture</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>High-availability design</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Our Networking Services -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Why Choose Our Networking Services</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">We deliver reliable, scalable, and future-proof networking solutions that grow with your business.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-map-pin text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Nationwide Coverage</h3>
+                <p class="text-gray-600">Complete coverage across the Philippines with local support teams in key regions for faster response times and better service.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-users text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Expert Engineers</h3>
+                <p class="text-gray-600">Experienced network engineers and technicians specialized in various networking technologies and industry standards.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-rocket text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Enhanced Performance</h3>
+                <p class="text-gray-600">Optimized network design and implementation that maximizes throughput, minimizes latency, and ensures consistent connectivity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-scale text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Scalability & Flexibility</h3>
+                <p class="text-gray-600">Future-proof network architecture that can easily adapt and expand as your business grows without major redesigns.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-chart-bar text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Increased Productivity</h3>
+                <p class="text-gray-600">Reliable, high-performance networks that minimize downtime and enable your team to work efficiently with fast access to applications.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-coin text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Cost Efficiency</h3>
+                <p class="text-gray-600">Strategic network planning that optimizes hardware investments and reduces the total cost of ownership for your IT infrastructure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <include-contact />
+
+    <!-- Footer -->
+    <include-footer />
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Initialize GLightbox
+      const lightbox = GLightbox({
+        selector: ".glightbox",
+        touchNavigation: true,
+        loop: true,
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

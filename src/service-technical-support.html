@@ -1,0 +1,882 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>Technical Support Services - Smartcomp Solutions Inc.</title>
+    <style>
+      :root {
+        --primary: #0062cc;
+        --primary-rgb: 0, 98, 204;
+        --secondary: #ff6b35;
+        --secondary-rgb: 255, 107, 53;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --info: #3b82f6;
+      }
+
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.6;
+        color: #334155;
+        background-color: #f8fafc;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(135deg, var(--primary) 0%, #004999 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 120px 0 80px;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+      }
+
+      /* Service Cards */
+      .service-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        border-top: 4px solid var(--primary);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        border-top-color: var(--secondary);
+      }
+
+      .service-card__icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .service-card:hover .service-card__icon {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        transform: scale(1.1);
+      }
+
+      /* Feature Cards */
+      .feature-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        border-left: 4px solid var(--primary);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-left-color: var(--secondary);
+      }
+
+      .feature-card__icon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-card__icon {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        transform: scale(1.05);
+      }
+
+      /* Process Steps */
+      .process-step {
+        text-align: center;
+        padding: 2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+      }
+
+      .process-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.5rem;
+        margin: 0 auto 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .process-step:hover .step-number {
+        transform: scale(1.1);
+      }
+
+      /* Support Type Cards */
+      .support-type-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .support-type-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+      }
+
+      .support-type-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Buttons */
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background: #0051a8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 98, 204, 0.3);
+      }
+
+      .btn-secondary {
+        background: var(--secondary);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-secondary:hover {
+        background: #e55a29;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline:hover {
+        background: white;
+        color: var(--primary);
+      }
+
+      /* Badge */
+      .badge {
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .badge-primary {
+        background: rgba(var(--primary-rgb), 0.1);
+        color: var(--primary);
+      }
+
+      .badge-secondary {
+        background: rgba(var(--secondary-rgb), 0.1);
+        color: var(--secondary);
+      }
+
+      /* Section Titles */
+      .section-title {
+        position: relative;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        border-radius: 2px;
+      }
+
+      .section-title.text-center::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-section {
+          padding: 100px 0 60px;
+        }
+        
+        .section-title {
+          text-align: center;
+        }
+
+        .section-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header components -->
+    <include-scroll-top />
+    <include-inner-pages-header-top />
+    <include-mobile-nav />
+    <include-inner-pages-desktop-nav />
+
+    <!-- Hero Section -->
+    <section class="hero-section mt-[71px] md:mt-[87px] xl:mt-0">
+      <div class="container relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="badge badge-secondary">Technical Support Services</span>
+          <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">Professional IT Technical Support</h1>
+          <p class="mb-8 text-xl text-white/90 max-w-3xl mx-auto">Comprehensive technical support services available during business hours (9AM-6PM, Monday to Friday) with remote assistance, on-site support, and specialized industry solutions nationwide.</p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="#services" class="btn-secondary">
+              Explore Services
+              <i class="ti ti-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn-outline">
+              Get Support Now
+              <i class="ti ti-headset"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Support Services -->
+    <section id="services" class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <span class="badge badge-primary">Core Services</span>
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Our Technical Support Services</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">We provide comprehensive technical support solutions tailored to your business needs with expert assistance during business hours.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3 mb-16">
+          <!-- Helpdesk Support -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-headset text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Helpdesk Support</h3>
+              <p class="text-gray-600 mb-6">Dedicated IT support helpdesk team providing nationwide assistance with ticket management and issue resolution.</p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Business hours ticket management</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Issue prioritization and tracking</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>System monitoring and alerts</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Escalation management</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Remote Support -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-device-laptop text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">Remote Support</h3>
+              <p class="text-gray-600 mb-6">Secure remote access and phone support for quick issue resolution without disrupting your workplace.</p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Secure remote access solutions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Network troubleshooting</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Software configuration</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Third-party coordination</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- On-site Support -->
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="p-8">
+              <div class="service-card__icon">
+                <i class="ti ti-tool text-3xl text-primary"></i>
+              </div>
+              <h3 class="mb-4 text-xl font-bold">On-site Support</h3>
+              <p class="text-gray-600 mb-6">Field technicians available nationwide for hands-on hardware support and complex installations.</p>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Hardware troubleshooting</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Equipment installation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>Preventive maintenance</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="ti ti-check text-success mt-1"></i>
+                  <span>System migrations</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="#contact" class="btn-primary">
+            Request Technical Support
+            <i class="ti ti-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialized Support -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <span class="badge badge-secondary">Specialized Support</span>
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Industry-Specific Solutions</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">Tailored technical support for different industries and specialized equipment types.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Retail Support -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card__icon">
+              <i class="ti ti-building-store text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Retail Support</h3>
+            <p class="text-gray-600 mb-4">Comprehensive support for retail operations and point-of-sale systems.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>POS system maintenance and support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Self-checkout counter support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Back office PC and server maintenance</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Inventory system integration</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Banking Support -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card__icon">
+              <i class="ti ti-building-bank text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Banking Support</h3>
+            <p class="text-gray-600 mb-4">Specialized support for banking systems and financial equipment.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>ATM installation and maintenance</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Kiosk machine support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Mobile Point of Sale (MPOS) support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Cash handling system support</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hardware Support -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card__icon">
+              <i class="ti ti-device-laptop text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Hardware Support</h3>
+            <p class="text-gray-600 mb-4">Authorized service provider for major hardware brands and equipment.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>HP laptops and desktops warranty service</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Server and storage maintenance</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Printer and scanner support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Component replacement and repair</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Network Support -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card__icon">
+              <i class="ti ti-wifi text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Network Support</h3>
+            <p class="text-gray-600 mb-4">Complete networking solutions and infrastructure support.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Structured cabling installation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Router and switch configuration</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Wireless network setup</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Network security implementation</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Enterprise Support -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-card__icon">
+              <i class="ti ti-server text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Enterprise Support</h3>
+            <p class="text-gray-600 mb-4">Comprehensive IT infrastructure support for large organizations.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Server and storage maintenance</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Network infrastructure support</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Resident engineer services</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>IT project management</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Logistics Support -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-card__icon">
+              <i class="ti ti-truck-delivery text-2xl text-primary"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4">Logistics Support</h3>
+            <p class="text-gray-600 mb-4">End-to-end logistics solutions for IT equipment deployment.</p>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Nationwide delivery services</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Warehousing and storage</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>IMACD services</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="ti ti-circle-check text-success mt-1 flex-shrink-0"></i>
+                <span>Asset tracking and management</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Process -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <span class="badge badge-primary">Support Process</span>
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">How We Handle Your Support Requests</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">Our streamlined support process ensures quick resolution and minimal downtime for your critical business systems.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">1</div>
+            <h3 class="text-xl font-bold mb-3">Issue Reporting</h3>
+            <p class="text-gray-600">Submit your support request through our helpdesk system or call our support hotline during business hours.</p>
+            <div class="mt-4 text-primary">
+              <i class="ti ti-headset text-3xl"></i>
+            </div>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">2</div>
+            <h3 class="text-xl font-bold mb-3">Expert Assignment</h3>
+            <p class="text-gray-600">Your issue is assigned to the most qualified technician based on expertise and availability.</p>
+            <div class="mt-4 text-primary">
+              <i class="ti ti-user-check text-3xl"></i>
+            </div>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-number">3</div>
+            <h3 class="text-xl font-bold mb-3">Resolution</h3>
+            <p class="text-gray-600">We implement the solution through remote access or on-site visit, keeping you informed throughout.</p>
+            <div class="mt-4 text-primary">
+              <i class="ti ti-tool text-3xl"></i>
+            </div>
+          </div>
+
+          <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+            <div class="step-number">4</div>
+            <h3 class="text-xl font-bold mb-3">Follow-up</h3>
+            <p class="text-gray-600">We confirm resolution and implement preventive measures to avoid future occurrences.</p>
+            <div class="mt-4 text-primary">
+              <i class="ti ti-check-circle text-3xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support Types -->
+    <section class="py-20 bg-gray-50">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Types of Support We Provide</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">From preventive maintenance to emergency repairs, we cover all aspects of technical support.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="support-type-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-calendar-event text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Preventive Maintenance</h3>
+                <p class="text-gray-600 mb-4">Regular maintenance schedules to prevent issues before they occur.</p>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Scheduled system checkups</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Software updates and patches</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Hardware cleaning and inspection</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="support-type-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-alert-triangle text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Corrective Maintenance</h3>
+                <p class="text-gray-600 mb-4">Quick response to fix issues and restore normal operations.</p>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Emergency repair services</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>Hardware replacement</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>System recovery and restoration</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="support-type-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-settings text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Installation & Configuration</h3>
+                <p class="text-gray-600 mb-4">Professional setup and configuration of new systems and equipment.</p>
+                <ul class="space-y-2">
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>New equipment installation</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>System configuration and testing</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <i class="ti ti-check text-success"></i>
+                    <span>User training and documentation</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Our Support -->
+    <section class="py-20 bg-white">
+      <div class="container">
+        <div class="text-center mb-16">
+          <h2 class="section-title text-center text-3xl font-bold lg:text-4xl">Why Choose Our Technical Support</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto text-lg">We deliver reliable, professional, and cost-effective technical support solutions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-map-pin text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Nationwide Coverage</h3>
+                <p class="text-gray-600">Complete coverage across the Philippines with local support teams in key regions for faster response times.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-clock text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Business Hours Support</h3>
+                <p class="text-gray-600">Dedicated support during business hours (9AM-6PM, Monday to Friday) with priority response for critical issues.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-users text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Expert Technicians</h3>
+                <p class="text-gray-600">Experienced engineers and technicians specialized in various industries and technology platforms.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-shield-check text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Proven Track Record</h3>
+                <p class="text-gray-600">Trusted by leading companies across banking, retail, and enterprise sectors with years of successful service delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-device-laptop text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Multi-Platform Expertise</h3>
+                <p class="text-gray-600">Support for various hardware brands, software platforms, and specialized industry equipment.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="flex items-start gap-4">
+              <div class="text-primary">
+                <i class="ti ti-headset text-3xl"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-3">Comprehensive Service</h3>
+                <p class="text-gray-600">From helpdesk support to on-site repairs, we provide end-to-end technical support solutions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <include-contact />
+
+    <!-- Footer -->
+    <include-footer />
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS animations
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Initialize GLightbox
+      const lightbox = GLightbox({
+        selector: ".glightbox",
+        touchNavigation: true,
+        loop: true,
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

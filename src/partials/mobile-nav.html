@@ -1,0 +1,183 @@
+<!-- Mobile Menu -->
+<div class="relative w-full xl:hidden">
+  <!-- Overlay for when menu is open -->
+  <div id="overlay" class="invisible fixed right-0 top-0 z-[32] h-screen w-0 bg-black bg-opacity-60 backdrop-blur-sm duration-500 ease-in-out"></div>
+
+  <!-- Mobile Nav Header -->
+  <nav class="fixed top-0 z-[31] w-full bg-white shadow-md xl:hidden">
+    <div class="container relative flex items-center justify-between px-4 py-3 md:py-4">
+      <a href="index.html" class="flex items-center">
+        <img src="./assets/images/logo.png" width="150" height="50" alt="logo" class="h-10 w-auto md:h-12" />
+      </a>
+      <button id="menuToggle" class="group flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-primary/5 transition-all hover:bg-primary/10 xl:hidden">
+        <i class="ti ti-menu-2 text-[24px] text-primary transition-all group-hover:scale-110"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobileMenu" class="fixed left-0 top-0 z-[33] h-screen w-full max-w-[320px] -translate-x-[120%] overflow-y-auto bg-white pb-4 shadow-2xl duration-500 ease-in-out xl:hidden">
+    <!-- Menu Header -->
+    <div class="border-gray-100 flex items-center justify-between border-b px-6 py-4">
+      <a href="index.html">
+        <img src="./assets/images/logo.png" width="140" height="40" alt="logo" class="h-9 w-auto" />
+      </a>
+      <button id="closeMenu" aria-label="mobile menu close" class="bg-gray-100 text-gray-600 group flex h-9 w-9 cursor-pointer items-center justify-center rounded-full transition-all hover:bg-primary hover:text-white">
+        <i class="ti ti-x text-[20px] transition-transform group-hover:rotate-90"></i>
+      </button>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="mt-2 px-4">
+      <ul class="space-y-1">
+        <!-- Home -->
+        <li class="hover:bg-gray-50 w-full rounded-lg transition-colors">
+          <button class="submenu-toggle text-gray-800 flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium transition-all hover:text-primary">
+            <span class="flex items-center gap-3">
+              <i class="ti ti-home text-[20px] text-primary/70"></i>
+              <span>Home</span>
+            </span>
+            <i class="ti ti-chevron-down text-gray-400 text-[18px] transition-transform"></i>
+          </button>
+          <ul class="submenu max-h-0 overflow-hidden px-2 transition-all duration-300" style="display: none">
+            <li class="border-gray-200 border-l pl-4">
+              <a href="index.html" class="text-gray-600 block py-2 transition-all hover:text-primary">Home</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Services -->
+        <li class="hover:bg-gray-50 w-full rounded-lg transition-colors">
+          <button class="submenu-toggle text-gray-800 flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium transition-all hover:text-primary">
+            <span class="flex items-center gap-3">
+              <i class="ti ti-tool text-[20px] text-primary/70"></i>
+              <span>Services</span>
+            </span>
+            <i class="ti ti-chevron-down text-gray-400 text-[18px] transition-transform"></i>
+          </button>
+          <ul class="submenu max-h-0 overflow-hidden px-2 transition-all duration-300" style="display: none">
+            <li class="border-gray-200 border-l pl-4">
+              <a href="service-technical-support.html" class="text-gray-600 block py-2 transition-all hover:text-primary">Service 01</a>
+            </li>
+            <li class="border-gray-200 border-l pl-4">
+              <a href="service-banking-retail.html" class="text-gray-600 block py-2 transition-all hover:text-primary">Service 02</a>
+            </li>
+            <li class="border-gray-200 border-l pl-4">
+              <a href="service-networking-infrastructure.html" class="text-gray-600 block py-2 transition-all hover:text-primary">Service 03</a>
+            </li>
+            <li class="border-gray-200 border-l pl-4">
+              <a href="service-call-management.html" class="text-gray-600 block py-2 transition-all hover:text-primary">Service 04</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Products -->
+        <li class="hover:bg-gray-50 w-full rounded-lg transition-colors">
+          <button class="submenu-toggle text-gray-800 flex w-full items-center justify-between rounded-lg px-4 py-3 font-medium transition-all hover:text-primary">
+            <span class="flex items-center gap-3">
+              <i class="ti ti-package text-[20px] text-primary/70"></i>
+              <span>Products</span>
+            </span>
+            <i class="ti ti-chevron-down text-gray-400 text-[18px] transition-transform"></i>
+          </button>
+          <ul class="submenu max-h-0 overflow-hidden px-2 transition-all duration-300" style="display: none">
+            <li class="border-gray-200 border-l pl-4">
+              <a href="product-hp-laptops.html" class="text-gray-600 block py-2 transition-all hover:text-primary">HP Laptops</a>
+            </li>
+            <li class="border-gray-200 border-l pl-4">
+              <a href="product-smartcomp-products.html" class="text-gray-600 block py-2 transition-all hover:text-primary">SmartComp Products</a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Contact Us -->
+        <li class="hover:bg-gray-50 w-full rounded-lg transition-colors">
+          <a href="contact.html" class="text-gray-800 flex w-full items-center gap-3 rounded-lg px-4 py-3 font-medium transition-all hover:text-primary">
+            <i class="ti ti-mail text-[20px] text-primary/70"></i>
+            <span>Contact Us</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-6 px-4">
+      <div class="rounded-lg bg-primary/5 p-4">
+        <h4 class="mb-2 font-semibold text-primary">Need Help?</h4>
+        <p class="text-gray-600 mb-3 text-sm">Our support team is available 24/7</p>
+        <a href="tel:+6325310-3234" class="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-center text-sm font-medium text-white transition-all hover:bg-primary/90">
+          <i class="ti ti-phone-call"></i>
+          <span>(02) 5310-3234</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="mt-6 flex justify-center gap-3 px-4">
+      <a href="#" class="bg-gray-100 text-gray-600 flex h-9 w-9 items-center justify-center rounded-full transition-all hover:bg-primary hover:text-white">
+        <i class="ti ti-brand-facebook text-[18px]"></i>
+      </a>
+      <a href="#" class="bg-gray-100 text-gray-600 flex h-9 w-9 items-center justify-center rounded-full transition-all hover:bg-primary hover:text-white">
+        <i class="ti ti-brand-twitter text-[18px]"></i>
+      </a>
+      <a href="#" class="bg-gray-100 text-gray-600 flex h-9 w-9 items-center justify-center rounded-full transition-all hover:bg-primary hover:text-white">
+        <i class="ti ti-brand-linkedin text-[18px]"></i>
+      </a>
+      <a href="#" class="bg-gray-100 text-gray-600 flex h-9 w-9 items-center justify-center rounded-full transition-all hover:bg-primary hover:text-white">
+        <i class="ti ti-brand-instagram text-[18px]"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Mobile Menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const closeMenu = document.getElementById("closeMenu");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("overlay");
+    const submenuToggles = document.querySelectorAll(".submenu-toggle");
+
+    // Open menu
+    menuToggle.addEventListener("click", function () {
+      mobileMenu.style.transform = "translateX(0)";
+      overlay.style.width = "100%";
+      overlay.style.visibility = "visible";
+      document.body.style.overflow = "hidden";
+    });
+
+    // Close menu
+    function closeMenuFunction() {
+      mobileMenu.style.transform = "translateX(-120%)";
+      overlay.style.width = "0";
+      overlay.style.visibility = "hidden";
+      document.body.style.overflow = "auto";
+    }
+
+    closeMenu.addEventListener("click", closeMenuFunction);
+    overlay.addEventListener("click", closeMenuFunction);
+
+    // Toggle submenus
+    submenuToggles.forEach((button) => {
+      button.addEventListener("click", function () {
+        const submenu = this.nextElementSibling;
+        const icon = this.querySelector(".ti-chevron-down");
+
+        if (submenu.style.display === "none" || submenu.style.display === "") {
+          submenu.style.display = "block";
+          setTimeout(() => {
+            submenu.style.maxHeight = submenu.scrollHeight + "px";
+            icon.style.transform = "rotate(180deg)";
+          }, 10);
+        } else {
+          submenu.style.maxHeight = "0";
+          icon.style.transform = "rotate(0)";
+          setTimeout(() => {
+            submenu.style.display = "none";
+          }, 300);
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Jost", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-3 sm:max-w-[540px] sm:px-0 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1296px];
+  }
+  .h1 {
+    @apply text-[36px] font-bold leading-[130%] md:text-[48px] lg:text-[60px] xxl:text-[76px];
+  }
+  .h2 {
+    @apply text-[30px] font-bold leading-[130%] md:text-[36px] lg:text-[48px] xxl:text-[57px];
+  }
+  .h3 {
+    @apply text-[24px] font-bold leading-[130%] md:text-[30px] lg:text-[36px] xxl:text-[43px];
+  }
+  .h4 {
+    @apply text-[20px] font-bold leading-[130%] md:text-[24px] lg:text-[30px] xl:text-[32px];
+  }
+  .h5 {
+    @apply text-lg font-semibold leading-[130%] md:text-[20px] xxl:text-[24px];
+  }
+  .h6 {
+    @apply text-[16px] font-semibold leading-[130%] md:text-lg;
+  }
+  .section {
+    @apply py-[60px] lg:py-[120px];
+  }
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-3 rounded-[30px] border px-4 py-3 text-lg font-medium md:px-7 lg:px-5;
+  }
+  .btn-small {
+    @apply relative inline-flex items-center justify-center gap-3 rounded-[30px] border px-3 py-1.5 text-lg font-medium md:px-4;
+  }
+  .btn-primary {
+    @apply btn z-10 overflow-hidden border-none border-primary bg-primary text-n8 after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-0 after:bg-n8/20 after:duration-500 hover:after:w-full;
+  }
+
+  .btn-white {
+    @apply btn z-10 overflow-hidden border-none border-n8 bg-white text-white after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-0 after:bg-n8/20 after:duration-500 hover:after:w-full;
+  }
+  .btn-outline-white {
+    @apply btn z-10 overflow-hidden border border-white bg-transparent text-n8 after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-0 after:bg-n8/20 after:duration-500 hover:after:w-full;
+
+    .inner-icon-container {
+      @apply flex items-center justify-center rounded-full bg-white p-2 text-primary duration-300 hover:bg-primary hover:text-white;
+    }
+  }
+
+  .btn-yellow {
+    @apply btn z-10 overflow-hidden border-none border-yellow bg-yellow text-title after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-0 after:bg-n8/20 after:duration-500 hover:after:w-full;
+  }
+  .btn-outline {
+    @apply btn border-primary bg-transparent text-primary duration-300 hover:border-primary hover:bg-primary hover:text-n8;
+  }
+
+  .btn-outline-small {
+    @apply btn-small border-primary bg-transparent text-primary duration-300 hover:border-primary hover:bg-primary hover:text-n8;
+  }
+
+  .btn-white {
+    @apply btn overflow-hidden border-none bg-n8 text-primary duration-500 after:absolute after:left-0 after:top-0 after:h-full after:w-0 after:bg-primary/20 after:duration-500 hover:after:w-full;
+  }
+}
+
+@layer base {
+  .event-unset {
+    pointer-events: unset;
+  }
+  .outline-text {
+    -webkit-text-stroke: 1px white;
+    -webkit-text-fill-color: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/*================ scroll bar style start ================ */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(237, 232, 232, 0.3);
+  background-color: #cbcfd0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #563aff;
+}
+
+.cart-scrollbar::-webkit-scrollbar {
+  height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #563aff;
+  border-radius: 10px;
+  width: 2px;
+}
+
+.wishlist-table-container::-webkit-scrollbar {
+  height: 10px;
+}

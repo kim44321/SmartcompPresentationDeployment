@@ -1,0 +1,1226 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <!-- Font preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <title>About Us - Smartcomp Solutions</title>
+    <style> 
+      :root {
+        --primary: #563aff;
+        --primary-dark: #4029e6;
+        --primary-light: #7a63ff;
+        --secondary: #ff6b35;
+        --secondary-dark: #e55a24;
+        --dark: #1f1849;
+        --light: #f7f7fc;
+        --gray: #e7e7f4;
+        --text: #4a4b65;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        scroll-behavior: smooth;
+      }
+
+      /* Breadcrumb styles */
+      .breadcrumb {
+        background-image: url("./assets/images/banner-bg.png");
+        background-size: cover;
+        background-position: center;
+        padding: 80px 0;
+        position: relative;
+      }
+
+      .breadcrumb::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary);
+        opacity: 0.8;
+      }
+
+      .breadcrumb-content {
+        position: relative;
+        z-index: 2;
+        color: var(--white);
+      }
+
+      .breadcrumb-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .breadcrumb-nav {
+        display: flex;
+        align-items: center;
+      }
+
+      .breadcrumb-nav a {
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .breadcrumb-nav i {
+        margin: 0 10px;
+      }
+
+      /* About section styles */
+      .about-section {
+        padding: 100px 0;
+        background-color: var(--white);
+      }
+
+      .about-image {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      .about-content {
+        padding: 20px;
+      }
+
+      .section-subtitle {
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .about-text {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      /* Mission Vision Values section */
+      .mvv-section {
+        padding: 80px 0;
+        background-color: var(--light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .mvv-section::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background-color: var(--primary-light);
+        opacity: 0.05;
+        border-radius: 50%;
+      }
+
+      .mvv-section::after {
+        content: "";
+        position: absolute;
+        bottom: -100px;
+        left: -100px;
+        width: 300px;
+        height: 300px;
+        background-color: var(--secondary);
+        opacity: 0.05;
+        border-radius: 50%;
+      }
+
+      .mvv-card {
+        background-color: var(--white);
+        border-radius: 15px;
+        padding: 40px 30px;
+        height: 100%;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        position: relative;
+        z-index: 1;
+      }
+
+      .mvv-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .mvv-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-light);
+        color: var(--white);
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      .mvv-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 15px;
+      }
+
+      .mvv-text {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* Services section */
+      .services-section {
+        padding: 100px 0;
+        background-color: var(--white);
+      }
+
+      .service-card {
+        background-color: var(--light);
+        border-radius: 15px;
+        padding: 30px;
+        height: 100%;
+        transition: var(--transition);
+        border: 1px solid var(--gray);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-md);
+        border-color: transparent;
+      }
+
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary);
+        color: var(--white);
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .service-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 15px;
+      }
+
+      .service-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      /* Coverage section */
+      .coverage-section {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .coverage-map {
+        position: relative;
+        height: 500px;
+        background-image: url("./assets/images/ph-map.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 10px;
+        box-shadow: var(--shadow-md);
+        padding: 20px;
+      }
+
+      .coverage-map img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .coverage-list {
+        background-color: var(--white);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: var(--shadow-md);
+      }
+
+      .coverage-region {
+        margin-bottom: 20px;
+      }
+
+      .region-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .region-title i {
+        margin-right: 10px;
+      }
+
+      .region-areas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .region-area {
+        background-color: var(--light);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: var(--transition);
+      }
+
+      .region-area:hover {
+        background-color: var(--primary-light);
+        color: var(--white);
+      }
+
+      /* Client section */
+      .client-section {
+        padding: 80px 0;
+        background-color: var(--white);
+      }
+
+      .client-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: var(--transition);
+      }
+
+      .client-logo:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+
+      .client-logo img {
+        max-width: 100%;
+        max-height: 80px;
+      }
+
+      /* CTA section */
+      .cta-section {
+        padding: 80px 0;
+        background-color: var(--primary);
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: -50px;
+        width: 200px;
+        height: 200px;
+        background-color: var(--white);
+        opacity: 0.05;
+        border-radius: 50%;
+      }
+
+      .cta-section::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background-color: var(--white);
+        opacity: 0.05;
+        border-radius: 50%;
+      }
+
+      .cta-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .cta-text {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn-white {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: var(--white);
+        color: var(--primary);
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .btn-white:hover {
+        background-color: var(--secondary);
+        color: var(--white);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Responsive styles */
+      @media (max-width: 992px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .about-image {
+          margin-bottom: 30px;
+        }
+
+        .coverage-map {
+          height: 400px;
+          margin-bottom: 30px;
+        }
+
+        .cta-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .breadcrumb {
+          padding: 60px 0;
+        }
+
+        .breadcrumb-title {
+          font-size: 2rem;
+        }
+
+        .about-section,
+        .mvv-section,
+        .services-section,
+        .coverage-section,
+        .client-section,
+        .cta-section {
+          padding: 60px 0;
+        }
+
+        .mvv-card {
+          margin-bottom: 30px;
+        }
+
+        .service-card {
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Top -->
+    <nav class="relative hidden bg-[#DFDAFF]/20 xl:block">
+      <div class="container flex items-center justify-between px-3 py-3 md:py-5">
+        <!-- Info List -->
+        <ul class="hidden divide-x divide-gray text-base xl:flex xxl:text-lg">
+          <li>
+            <div class="flex items-center gap-2 px-4 xxl:px-5">
+              <div class="flex items-center justify-center rounded-full bg-[#DFDAFF] p-1 text-primary">
+                <i class="ti ti-mail-filled text-[24px]"></i>
+              </div>
+              <span class="flex flex-col gap-1">
+                <a href="mailto:ssi.itsales.solutions@gmail.com" class=""> ssi.itsales.solutions@gmail.com </a>
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center gap-2 px-4 xxl:px-5">
+              <div class="flex items-center justify-center rounded-full bg-[#DFDAFF] p-1 text-primary">
+                <i class="ti ti-phone-call text-[24px]"></i>
+              </div>
+              <span class="flex flex-col gap-1">
+                <a href="tel:(02)5310-3234" class=""> (02) 5310-3234 </a>
+              </span>
+            </div>
+          </li>
+
+          <li>
+            <div class="flex items-center gap-2 px-4 xxl:px-5">
+              <div class="flex items-center justify-center rounded-full bg-[#DFDAFF] p-1 text-primary">
+                <i class="ti ti-map-pin text-[24px]"></i>
+              </div>
+              <span class="flex flex-col gap-1">
+                <span>648 Remedios St. cor. Maria Orosa St., Malate, Manila</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <!-- Info List End -->
+        <div class="flex divide-x divide-gray">
+          <div class="flex items-center gap-3 px-4">
+            <div class="flex items-center justify-center rounded-full bg-[#DFDAFF] p-1 text-primary">
+              <i class="ti ti-clock-filled text-[24px]"></i>
+            </div>
+            <span>09:00am-6:00pm</span>
+          </div>
+          <!-- Social Icon  -->
+          <ul class="flex gap-2">
+            <li>
+              <a aria-label="facebook link" href="#" class="inline-flex rounded-full p-1 text-primary duration-300 hover:bg-primary hover:text-n8">
+                <i class="ti ti-brand-facebook text-[24px]"></i>
+              </a>
+            </li>
+            <li>
+              <a aria-label="twitter link" href="#" class="inline-flex rounded-full p-1 text-primary duration-300 hover:bg-primary hover:text-n8">
+                <i class="ti ti-brand-twitter text-[24px]"></i>
+              </a>
+            </li>
+            <li>
+              <a aria-label="instagram link" href="#" class="inline-flex rounded-full p-1 text-primary duration-300 hover:bg-primary hover:text-n8">
+                <i class="ti ti-brand-instagram text-[24px]"></i>
+              </a>
+            </li>
+            <li>
+              <a aria-label="Linkedin link" href="#" class="inline-flex rounded-full p-1 text-primary duration-300 hover:bg-primary hover:text-n8">
+                <i class="ti ti-brand-linkedin text-[24px]"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <include-mobile-nav />
+    <!-- ==================== DesktopNav Start ==================== -->
+    <div class="sticky top-0 z-30 hidden bg-n8 py-2.5 shadow-xl xl:block">
+      <div class="container flex items-center justify-between">
+        <a href="index.html">
+          <img height="171" width="60" src="./assets/images/logo.png" alt="logo" />
+        </a>
+        <div class="hidden items-center gap-3 xl:flex">
+          <ul class="relative flex gap-2">
+            <li class="group relative cursor-pointer px-5 py-2.5">
+              <a href="index.html" class="flex items-center duration-300 hover:text-secondary">
+                <span class="font-medium">Home</span>
+              </a>
+            </li>
+            <li class="group relative cursor-pointer px-5 py-2.5">
+              <span class="flex items-center duration-300 hover:text-secondary">
+                <span class="font-medium">Services</span>
+                <i class="ti ti-chevron-down"></i>
+              </span>
+              <include-service-pages-ul />
+            </li>
+            <li class="group relative cursor-pointer px-5 py-2.5">
+              <span class="flex items-center duration-300 hover:text-secondary">
+                <span class="font-medium">Products</span>
+                <i class="ti ti-chevron-down"></i>
+              </span>
+              <include-product-pages-ul />
+            </li>
+            <li class="group relative cursor-pointer px-5 py-2.5">
+              <a class="font-medium duration-300 hover:text-secondary" href="contact.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- ==================== DesktopNav end ==================== -->
+
+    <!-- Breadcrumb Section -->
+    <section class="breadcrumb">
+      <div class="container">
+        <div class="breadcrumb-content">
+          <h1 class="breadcrumb-title">About Us</h1>
+          <div class="breadcrumb-nav">
+            <a href="index.html">Home</a>
+            <i class="ti ti-chevron-right"></i>
+            <span>About Us</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="about-image">
+              <img src="./assets/images/about-img-6.jpg" alt="Smartcomp Solutions Office" />
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-content">
+              <span class="section-subtitle">Our Company</span>
+              <h2 class="section-title">Leading IT Solutions Provider Since 2009</h2>
+              <p class="about-text">
+                Smartcomp Solutions, Inc. has established itself as one of the leading players in the market for IT-based solutions geared towards the branch operations of banks, retail establishments, and the PC industry. Registered at SEC on March 24, 2009, our office is located at RM 611 Royal Plaza Twin Tower 648 Remedios St. cor. Ma. Orosa St.
+                Malate, Manila.
+              </p>
+              <p class="about-text">
+                We started as Sycom System and Services, Inc. on March 1, 2001, with SM Department Store Branches as our first client, providing resident engineers for Point of Sales (POS) systems across all SM Branches. In 2004, we expanded our services to include Banking Systems and Solutions, including ATMs, Cash Handling Systems, and Clearing
+                Systems.
+              </p>
+              <p class="about-text">
+                In March 2009, we merged with Retail Asia, a company with 4 years of experience in the retail industry, and established Smartcomp Solutions Inc. to cater to the growing needs for technical support in the retail, banking, and PC industries. Today, we have 125 Customer Service Engineers deployed across the country, ensuring reliable
+                and efficient service nationwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission Vision Values Section -->
+    <section class="mvv-section">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <span class="section-subtitle">Mission, Vision, and Values</span>
+          <h2 class="section-title">What Drives Us Forward</h2>
+          <p class="mb-5">Our guiding principles that shape everything we do</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="mvv-card">
+              <div class="mvv-icon">
+                <i class="ti ti-target"></i>
+              </div>
+              <h3 class="mvv-title">Our Mission</h3>
+              <p class="mvv-text">Our customers are the highest priority. Our people are the greatest assets of the company. We strive to provide exceptional service and innovative solutions that exceed expectations and drive business success.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="mvv-card">
+              <div class="mvv-icon" style="background-color: #ff6b35">
+                <i class="ti ti-eye"></i>
+              </div>
+              <h3 class="mvv-title">Our Vision</h3>
+              <p class="mvv-text">To achieve total customer satisfaction through innovative solutions and high-quality service. We aim to be the leading IT solutions provider in the Philippines, recognized for our expertise, reliability, and commitment to excellence.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="mvv-card">
+              <div class="mvv-icon" style="background-color: #00c853">
+                <i class="ti ti-heart"></i>
+              </div>
+              <h3 class="mvv-title">Our Values</h3>
+              <p class="mvv-text">Innovation, leadership, responsibility, and passion. These core values guide our approach to business, shape our company culture, and define how we interact with our clients, partners, and each other.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <span class="section-subtitle">Our Services</span>
+          <h2 class="section-title">Comprehensive IT Solutions</h2>
+          <p class="mb-5">We offer a wide range of IT services tailored to meet your business needs</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="ti ti-device-laptop"></i>
+              </div>
+              <h3 class="service-title">Technical Support</h3>
+              <p class="service-text">Nationwide IT support for POS systems, ATMs, kiosks, and other IT equipment. Our team of 125 Customer Service Engineers provides prompt and efficient service across the country.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="service-icon" style="background-color: #ff6b35">
+                <i class="ti ti-credit-card"></i>
+              </div>
+              <h3 class="service-title">Banking & Retail Solutions</h3>
+              <p class="service-text">Installation, configuration, testing, and maintenance of ATMs and POS systems. We provide end-to-end services from site survey to permit processing and ongoing support.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="service-icon" style="background-color: #00c853">
+                <i class="ti ti-network"></i>
+              </div>
+              <h3 class="service-title">Network Infrastructure</h3>
+              <p class="service-text">Structured cabling installation and testing, router and switch setup, backbone connection checking, and configuration of access points for reliable network connectivity.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="service-icon" style="background-color: #2196f3">
+                <i class="ti ti-device-desktop-analytics"></i>
+              </div>
+              <h3 class="service-title">Preventive Maintenance</h3>
+              <p class="service-text">Regular maintenance services for POS systems, PCs, servers, and other IT equipment to ensure optimal performance and prevent costly downtime.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="service-icon" style="background-color: #9c27b0">
+                <i class="ti ti-building-store"></i>
+              </div>
+              <h3 class="service-title">Resident Engineers</h3>
+              <p class="service-text">Dedicated on-site technical support for major clients like Robinsons, Globe, Smart, GMA, ST Micro, Eastwest Bank, Vibal, Okada, SSS, Roche, and Personal Collections.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="service-card">
+              <div class="service-icon" style="background-color: #ff5722">
+                <i class="ti ti-truck-delivery"></i>
+              </div>
+              <h3 class="service-title">Logistics & Deployment</h3>
+              <p class="service-text">Door-to-door delivery of IT equipment and ATMs nationwide, warehousing services, and IMACD (Install, Move, Add, Change, Deploy) services for efficient deployment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="coverage-section">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <span class="section-subtitle">Nationwide Presence</span>
+          <h2 class="section-title">Our Area of Coverage</h2>
+          <p class="mb-5">Providing reliable IT services across the Philippines</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="coverage-map">
+              <img src="./assets/images/ph-map.png" alt="Philippines Coverage Map" />
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="coverage-list">
+              <div class="coverage-region">
+                <h3 class="region-title">
+                  <i class="ti ti-map-pin"></i>
+                  Luzon
+                </h3>
+                <div class="region-areas">
+                  <span class="region-area">Metro Manila</span>
+                  <span class="region-area">Bataan</span>
+                  <span class="region-area">Batangas</span>
+                  <span class="region-area">Benguet</span>
+                  <span class="region-area">Bicol</span>
+                  <span class="region-area">Bulacan</span>
+                  <span class="region-area">Cavite</span>
+                  <span class="region-area">Cagayan Province</span>
+                  <span class="region-area">Ilocos</span>
+                  <span class="region-area">Isabela</span>
+                  <span class="region-area">Laguna</span>
+                  <span class="region-area">Mindoro</span>
+                  <span class="region-area">Nueva Ecija</span>
+                  <span class="region-area">Palawan</span>
+                  <span class="region-area">Pampanga</span>
+                  <span class="region-area">Pangasinan</span>
+                  <span class="region-area">Rizal</span>
+                  <span class="region-area">Quezon Province</span>
+                  <span class="region-area">Tarlac</span>
+                  <span class="region-area">Zambales</span>
+                </div>
+              </div>
+
+              <div class="coverage-region">
+                <h3 class="region-title">
+                  <i class="ti ti-map-pin"></i>
+                  Visayas
+                </h3>
+                <div class="region-areas">
+                  <span class="region-area">Aklan</span>
+                  <span class="region-area">Bohol</span>
+                  <span class="region-area">Cebu</span>
+                  <span class="region-area">Capiz</span>
+                  <span class="region-area">Iloilo</span>
+                  <span class="region-area">Leyte</span>
+                  <span class="region-area">Negros Oriental</span>
+                  <span class="region-area">Negros Occidental</span>
+                  <span class="region-area">Ormoc</span>
+                </div>
+              </div>
+
+              <div class="coverage-region">
+                <h3 class="region-title">
+                  <i class="ti ti-map-pin"></i>
+                  Mindanao
+                </h3>
+                <div class="region-areas">
+                  <span class="region-area">Agusan del Norte</span>
+                  <span class="region-area">Agusan del Sur</span>
+                  <span class="region-area">Bukidnon</span>
+                  <span class="region-area">Cotabato City</span>
+                  <span class="region-area">Davao</span>
+                  <span class="region-area">General Santos</span>
+                  <span class="region-area">Koronadal</span>
+                  <span class="region-area">Misamis Occidental</span>
+                  <span class="region-area">Misamis Oriental</span>
+                  <span class="region-area">Zamboanga</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Section -->
+    <section class="client-section">
+      <div class="container">
+        <div class="mb-5 text-center">
+          <span class="section-subtitle">Our Clients</span>
+          <h2 class="section-title">Trusted by Leading Organizations</h2>
+          <p class="mb-5">We're proud to work with a diverse range of clients across various industries</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
+          <!-- Row 1 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-1.png" alt="Client 1" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-2.png" alt="Client 2" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-3.png" alt="Client 3" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-4.png" alt="Client 4" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-5.png" alt="Client 5" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-6.png" alt="Client 6" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-7.png" alt="Client 7" class="h-auto w-full" />
+          </div>
+          <!-- Row 2 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-8.png" alt="Client 8" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-9.png" alt="Client 9" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-10.png" alt="Client 10" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-11.png" alt="Client 11" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-12.png" alt="Client 12" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-13.png" alt="Client 13" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-14.png" alt="Client 14" class="h-auto w-full" />
+          </div>
+          <!-- Row 3 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-15.png" alt="Client 15" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-16.png" alt="Client 16" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-17.png" alt="Client 17" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-18.png" alt="Client 18" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-20.png" alt="Client 20" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-21.png" alt="Client 21" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-22.png" alt="Client 22" class="h-auto w-full" />
+          </div>
+          <!-- Row 4 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-23.png" alt="Client 23" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-24.png" alt="Client 24" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-25.png" alt="Client 25" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-26.png" alt="Client 26" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-27.png" alt="Client 27" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-28.png" alt="Client 28" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-29.png" alt="Client 29" class="h-auto w-full" />
+          </div>
+          <!-- Row 5 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-30.png" alt="Client 30" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-31.png" alt="Client 31" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-32.png" alt="Client 32" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-33.png" alt="Client 33" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-34.png" alt="Client 34" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-35.png" alt="Client 35" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-36.png" alt="Client 36" class="h-auto w-full" />
+          </div>
+          <!-- Row 6 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-37.png" alt="Client 37" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-38.png" alt="Client 38" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-39.png" alt="Client 39" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-40.png" alt="Client 40" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-41.png" alt="Client 41" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-42.png" alt="Client 42" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-43.png" alt="Client 43" class="h-auto w-full" />
+          </div>
+          <!-- Row 7 -->
+          <div class="client-logo">
+            <img src="./assets/images/client-44.png" alt="Client 44" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-45.png" alt="Client 45" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-46.png" alt="Client 46" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-47.png" alt="Client 47" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-48.png" alt="Client 48" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-49.png" alt="Client 49" class="h-auto w-full" />
+          </div>
+          <div class="client-logo">
+            <img src="./assets/images/client-50.png" alt="Client 50" class="h-auto w-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-title">Ready to Transform Your IT Infrastructure?</h2>
+        <p class="cta-text">Partner with Smartcomp Solutions for reliable, efficient, and innovative IT solutions tailored to your business needs. Let's work together to drive your success.</p>
+        <a href="contact.html" class="btn-white">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary">
+      <div class="container">
+        <div class="flex flex-row items-center justify-between border-b border-[#A393FF]">
+          <a href="index.html" class="logo">
+            <img width="172" height="47" src="./assets/images/logo-color.png" alt="image" class="logo__img" />
+          </a>
+          <p class="max-w-lg text-n8">We handle factors IT Consulting & Technology boosts business success. We Offer a Wide Range of Technological Services.</p>
+        </div>
+      </div>
+      <div class="container border-b border-[#A393FF] py-14 lg:py-28">
+        <div class="grid grid-cols-12 gap-6">
+          <div class="col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-2">
+            <h5 class="h5 mb-5 text-n8">IT Services</h5>
+            <ul class="flex flex-col gap-2">
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">About Us</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Service</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Case Study</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Pricing Plan</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Why Choose Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-2">
+            <h5 class="h5 mb-5 text-n8">Quick Link</h5>
+            <ul class="flex flex-col gap-2">
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Referral</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Coming Soon</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Terms & Condition</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Newsletter</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">404</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-2">
+            <h5 class="h5 mb-5 text-n8">Support</h5>
+            <ul class="flex flex-col gap-2">
+              <li>
+                <a href="contact.html" class="text-n8 duration-300 hover:text-secondary">Contact Us</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Leadership Page</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Facts</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">FAQ</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Help Center</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-6 sm:col-span-4 md:col-span-3 xl:col-span-3">
+            <h5 class="h5 mb-5 text-n8">Learn Fact</h5>
+            <ul class="flex flex-col gap-2">
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Leadership Details</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Getting Started</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Blog Details</a>
+              </li>
+              <li>
+                <a class="text-n8 duration-300 hover:text-secondary">Service Details</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3">
+            <h5 class="h5 mb-5 text-n8">Contact us</h5>
+            <ul class="flex flex-col gap-3">
+              <li>
+                <div class="flex items-start gap-6">
+                  <span class="flex items-center justify-center rounded-full bg-danger p-3 text-n8">
+                    <i class="ti ti-phone"></i>
+                  </span>
+                  <span class="flex flex-col">
+                    <span class="block text-sm text-n8">Phone</span>
+                    <a href="tel:(02)5310-3234" class="text-base text-n8 hover:text-secondary">(02) 5310-3234</a>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-start gap-6">
+                  <span class="i flex rounded-full bg-success p-3 text-n8">
+                    <i class="ti ti-mail"></i>
+                  </span>
+                  <span class="flex flex-col">
+                    <span class="block text-sm text-n8">Email</span>
+                    <a href="mailto:ssi.itsales.solutions@gmail.com" class="text-n8 hover:text-secondary">ssi.itsales.solutions@gmail.com</a>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-start gap-6">
+                  <span class="i flex rounded-full bg-warning p-3 text-n8">
+                    <i class="ti ti-map-pin"></i>
+                  </span>
+                  <span class="flex flex-col">
+                    <span class="block text-sm text-n8">Location</span>
+                    <span class="text-base text-n8">648 Remedios St. cor. Maria Orosa St., Malate, Manila</span>
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="lg:py-[30px py-5">
+        <div class="container">
+          <div class="grid grid-cols-12 items-center gap-6">
+            <div class="col-span-12 md:col-span-6">
+              <p class="text-center text-n8 md:text-start">Copyright<a href="index.html" class="duration-300 hover:text-secondary">Smartcomp Solutions</a> All Rights Reserved.</p>
+            </div>
+            <div class="col-span-12 md:col-span-6">
+              <ul class="mt-2.5 flex justify-center gap-2 lg:justify-end">
+                <li>
+                  <a class="flex items-center justify-center rounded-full bg-n8 p-2 text-primary duration-300 hover:bg-secondary hover:text-n8" href="#">
+                    <i class="ti ti-brand-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="flex items-center justify-center rounded-full bg-n8 p-2 text-primary duration-300 hover:bg-secondary hover:text-n8" href="#">
+                    <i class="ti ti-brand-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="flex items-center justify-center rounded-full bg-n8 p-2 text-primary duration-300 hover:bg-secondary hover:text-n8" href="#">
+                    <i class="ti ti-brand-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="flex items-center justify-center rounded-full bg-n8 p-2 text-primary duration-300 hover:bg-secondary hover:text-n8" href="#">
+                    <i class="ti ti-brand-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="hover:bg-primary-dark invisible fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white opacity-0 shadow-lg transition-all">
+      <i class="ti ti-chevron-up text-xl"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.add("opacity-0", "invisible");
+          backToTopButton.classList.remove("opacity-100", "visible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Client Logo Carousel
+      const clientSwiper = new Swiper(".client-swiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+          1280: {
+            slidesPerView: 6,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1674 @@
+<!doctype html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <!-- Font preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+    <title>Smartcomp Solutions - IT Solutions and Services</title>
+    <style>
+      :root {
+        --primary: #563aff;
+        --primary-dark: #4029e6;
+        --primary-light: #7a63ff;
+        --secondary: #ff6b35;
+        --secondary-dark: #e55a24;
+        --secondary-light: #ff8c5e;
+        --dark: #1f1849;
+        --light: #f7f7fc;
+        --gray: #e7e7f4;
+        --text: #4a4b65;
+        --white: #ffffff;
+        --success: #00c853;
+        --warning: #ffd600;
+        --danger: #ff1744;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text);
+        scroll-behavior: smooth;
+      }
+
+      /* Keep header and footer styles from original */
+
+      /* Enhanced Hero Section */
+      .hero-slide {
+        position: relative;
+        min-height: 600px;
+      }
+
+      .hero-slide::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(31, 24, 73, 0.7);
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Client Logo Section */
+      .client-logo-section {
+        margin-top: -80px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .client-logo {
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        filter: grayscale(100%);
+      }
+
+      .client-logo:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: scale(1.05);
+      }
+
+      /* Completely Revamped Service Section */ /* Enhanced Service Section Styles */
+      .service-section {
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(86, 58, 255, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(100px, -150px);
+      }
+
+      .service-section::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(-100px, 100px);
+      }
+
+      /* Consistent Service Card Styling */
+      .service-card {
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      /* Consistent Header Styling */
+      .service-card__header {
+        padding: 32px 24px;
+        color: #ffffff;
+        text-align: center;
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+      }
+
+      .service-card__header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        z-index: 1;
+      }
+
+      .service-card__title {
+        font-size: 1.375rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        line-height: 1.3;
+        position: relative;
+        z-index: 2;
+      }
+
+      .service-card__subtitle {
+        font-size: 0.95rem;
+        opacity: 0.9;
+        line-height: 1.4;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Card Color Schemes */
+      .service-card--technical .service-card__header {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+      }
+
+      .service-card--banking .service-card__header {
+        background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      }
+
+      .service-card--networking .service-card__header {
+        background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+      }
+
+      .service-card--call .service-card__header {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      }
+
+      /* Consistent Body Styling */
+      .service-card__body {
+        padding: 28px 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+      }
+
+      .service-card__description {
+        color: #64748b;
+        margin-bottom: 24px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        flex-grow: 1;
+      }
+
+      /* Feature List Styling */
+      .service-card__features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 28px 0;
+      }
+
+      .service-card__feature {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 12px;
+        font-size: 0.875rem;
+        color: #475569;
+        line-height: 1.5;
+      }
+
+      .service-card__feature:last-child {
+        margin-bottom: 0;
+      }
+
+      .service-card__feature i {
+        color: #10b981;
+        margin-right: 10px;
+        font-size: 1rem;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      /* Consistent Link Styling */
+      .service-card__link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background-color: #1f2937;
+        color: #ffffff;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        font-size: 0.9rem;
+        border: 2px solid #1f2937;
+      }
+
+      .service-card__link:hover {
+        background-color: #111827;
+        border-color: #111827;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(31, 41, 55, 0.3);
+      }
+
+      .service-card__link i {
+        transition: transform 0.3s ease;
+        color: #ffffff;
+      }
+
+      .service-card__link:hover i {
+        transform: translateX(4px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1023px) {
+        .service-card__header {
+          min-height: 120px;
+          padding: 24px 20px;
+        }
+
+        .service-card__title {
+          font-size: 1.25rem;
+        }
+
+        .service-card__subtitle {
+          font-size: 0.9rem;
+        }
+
+        .service-card__body {
+          padding: 24px 20px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .service-section {
+          padding: 80px 0;
+        }
+
+        .service-card__header {
+          min-height: 110px;
+          padding: 20px 16px;
+        }
+
+        .service-card__title {
+          font-size: 1.125rem;
+        }
+
+        .service-card__body {
+          padding: 20px 16px;
+        }
+
+        .service-card__link {
+          padding: 12px 24px;
+          font-size: 0.875rem;
+        }
+      }
+
+      /* Enhanced hover effects for better interactivity */
+      .service-card:hover .service-card__header::before {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+      }
+
+      .service-card:hover .service-card__title {
+        transform: translateY(-2px);
+      }
+
+      .service-card:hover .service-card__subtitle {
+        transform: translateY(-1px);
+      }
+      /* Banking & Retail Card */
+      .service-card--banking .service-card__header {
+        background: linear-gradient(135deg, #00c853, #009624);
+      }
+
+      .service-card--banking .service-card__feature i {
+        color: #00c853;
+      }
+
+      .service-card--banking .service-card__link {
+        background-color: #00c853;
+      }
+
+      .service-card--banking .service-card__link:hover {
+        background-color: #009624;
+        box-shadow: 0 10px 20px rgba(0, 200, 83, 0.2);
+      }
+
+      /* Networking Card */
+      .service-card--networking .service-card__header {
+        background: linear-gradient(135deg, #2196f3, #0d47a1);
+      }
+
+      .service-card--networking .service-card__feature i {
+        color: #2196f3;
+      }
+
+      .service-card--networking .service-card__link {
+        background-color: #2196f3;
+      }
+
+      .service-card--networking .service-card__link:hover {
+        background-color: #0d47a1;
+        box-shadow: 0 10px 20px rgba(33, 150, 243, 0.2);
+      }
+
+      /* Call Management Card */
+      .service-card--call .service-card__header {
+        background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+      }
+
+      .service-card--call .service-card__feature i {
+        color: var(--secondary);
+      }
+
+      .service-card--call .service-card__link {
+        background-color: var(--secondary);
+      }
+
+      .service-card--call .service-card__link:hover {
+        background-color: var(--secondary-dark);
+        box-shadow: 0 10px 20px rgba(255, 107, 53, 0.2);
+      }
+
+      /* Enhanced About Section */
+      .about-section {
+        position: relative;
+        padding: 100px 0;
+        background-color: var(--white);
+        overflow: hidden;
+      }
+
+      .about-section__pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(var(--gray) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.3;
+        z-index: 0;
+      }
+
+      .about-section__content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-image-grid {
+        position: relative;
+        height: 500px;
+      }
+
+      .about-image {
+        position: absolute;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+      }
+
+      .about-image:hover {
+        transform: scale(1.05);
+        z-index: 2;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .about-image-1 {
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 60%;
+      }
+
+      .about-image-2 {
+        top: 20%;
+        left: 0;
+        width: 40%;
+        height: 50%;
+      }
+
+      .about-image-3 {
+        bottom: 0;
+        right: 30%;
+        width: 50%;
+        height: 40%;
+      }
+
+      /* Enhanced Consultation Section */
+      .consultation-section {
+        position: relative;
+        padding: 100px 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .consultation-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .consultation-section__content {
+        position: relative;
+        z-index: 2;
+        color: var(--white);
+      }
+
+      .consultation-form {
+        position: relative;
+        background-color: var(--white);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        margin-top: -150px;
+        z-index: 3;
+      }
+
+      .consultation-form__header {
+        padding: 30px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: var(--white);
+        text-align: center;
+      }
+
+      .consultation-form__body {
+        padding: 30px;
+      }
+
+      .form-control {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        margin-bottom: 20px;
+        background-color: var(--light);
+        border: 1px solid var(--gray);
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(86, 58, 255, 0.1);
+        outline: none;
+      }
+
+      .form-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234A4B65' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        background-size: 16px;
+      }
+
+      .form-textarea {
+        border-radius: 20px;
+        resize: none;
+        min-height: 120px;
+      }
+
+      .btn-submit {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 50px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .btn-submit:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(86, 58, 255, 0.2);
+      }
+
+      /* Enhanced Features Section */
+      .features-section {
+        padding: 100px 0;
+        background-color: var(--light);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card {
+        background-color: var(--white);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-card__icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover .feature-card__icon {
+        transform: scale(1.1) rotate(10deg);
+      }
+
+      .feature-card__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--dark);
+      }
+
+      /* Enhanced Work Process Section */
+      .process-section {
+        padding: 100px 0;
+        background-color: var(--primary);
+        color: var(--white);
+        position: relative;
+      }
+
+      .process-section::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30%;
+        background-color: var(--white);
+        z-index: 1;
+      }
+
+      .process-section__content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .process-card {
+        background-color: var(--white);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+        color: var(--dark);
+        height: 100%;
+      }
+
+      .process-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .process-card__number {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .process-card:hover .process-card__number {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+
+      .process-card__title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      /* Enhanced Service Showcase Section */
+      .showcase-section {
+        padding: 100px 0;
+        background-color: var(--white);
+      }
+
+      .service-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 40px;
+      }
+
+      .service-tab {
+        padding: 12px 24px;
+        border-radius: 50px;
+        border: 1px solid var(--gray);
+        background-color: transparent;
+        color: var(--text);
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .service-tab.active {
+        background-color: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+      }
+
+      .service-tab:not(.active):hover {
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+
+      .showcase-item {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .showcase-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .showcase-item__image {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .showcase-item__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .showcase-item:hover .showcase-item__image img {
+        transform: scale(1.1);
+      }
+
+      .showcase-item__content {
+        padding: 20px;
+        background-color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .showcase-item__title {
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .showcase-item__icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .showcase-item:hover .showcase-item__icon {
+        transform: rotate(45deg);
+      }
+      /* Enhanced Service Card Styles for Consistency */
+      .service-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #0062cc 0%, #004a99 100%);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-card--banking {
+        background: linear-gradient(135deg, #ff6b35 0%, #e55a29 100%);
+      }
+
+      .service-card--networking {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+
+      .service-card--call {
+        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      }
+
+      .service-card__header {
+        padding: 2rem 1.5rem 1.5rem;
+        text-align: center;
+        color: white;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .service-card__title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+      }
+
+      .service-card__body {
+        background: white;
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .service-card__description {
+        color: #64748b;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        flex-grow: 1;
+      }
+
+      .service-card__features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+      }
+
+      .service-card__feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        font-size: 0.875rem;
+        color: #475569;
+      }
+
+      .service-card__feature:last-child {
+        margin-bottom: 0;
+      }
+
+      .service-card__feature i {
+        color: #10b981;
+        margin-right: 0.5rem;
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+
+      .service-card__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #0062cc;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid #e2e8f0;
+      }
+
+      .service-card__link:hover {
+        color: #004a99;
+        gap: 0.75rem;
+      }
+
+      .service-card__link i {
+        transition: transform 0.3s ease;
+      }
+
+      .service-card__link:hover i {
+        transform: translateX(3px);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1023px) {
+        .service-card__header {
+          min-height: 100px;
+          padding: 1.5rem 1.25rem 1.25rem;
+        }
+
+        .service-card__title {
+          font-size: 1.125rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .service-card__header {
+          min-height: auto;
+          padding: 1.5rem;
+        }
+
+        .service-card__body {
+          padding: 1.25rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- scroll top -->
+    <include-scroll-top />
+    <!-- Header Top -->
+    <include-inner-pages-header-top />
+    <!-- Mobile Nav -->
+    <include-mobile-nav />
+    <!-- Desktop Nav -->
+    <include-inner-pages-desktop-nav />
+
+    <!-- ==================== Hero Section ==================== -->
+    <section class="hero-section relative">
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide hero-slide" style="background-image: url(&quot;./assets/images/hero-slider-1-bg.webp&quot;)">
+            <div class="container">
+              <div class="hero-content relative z-10 max-w-3xl py-32 md:py-40 xl:py-48">
+                <span class="mb-4 inline-block text-xl font-semibold text-secondary" data-aos="fade-up" data-aos-delay="100">Leading IT Support Across Industries</span>
+                <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl" data-aos="fade-up" data-aos-delay="200">Reliable IT Solutions for Banks, Retail & Enterprises</h1>
+                <p class="mb-8 text-xl text-white opacity-90" data-aos="fade-up" data-aos-delay="300">Delivering Nationwide Technical Support, System Integration, and IT Services Since 2009</p>
+                <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="400">
+                  <a href="contact.html" class="inline-flex items-center rounded-full bg-secondary px-6 py-3 font-medium text-white transition-all hover:-translate-y-1 hover:bg-[#e55a24] hover:shadow-lg hover:shadow-[#ff6b3540]">
+                    Let's Talk Now
+                    <i class="ti ti-headphones ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <img src="./assets/images/hero-2-img-1.webp" alt="IT Solutions" class="absolute bottom-0 right-0 z-10 hidden h-[95%] w-auto object-cover xl:block" />
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide hero-slide" style="background-image: url(&quot;./assets/images/hero-slider-1-bg.webp&quot;)">
+            <div class="container">
+              <div class="hero-content relative z-10 max-w-3xl py-32 md:py-40 xl:py-48">
+                <span class="mb-4 inline-block text-xl font-semibold text-secondary">Seamless IT Infrastructure & Support</span>
+                <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">Optimized IT Services to Drive Your Business Forward</h1>
+                <p class="mb-8 text-xl text-white opacity-90">From POS to ATM Maintenance, We Ensure Your Systems Run Smoothly</p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="contact.html" class="inline-flex items-center rounded-full bg-secondary px-6 py-3 font-medium text-white transition-all hover:-translate-y-1 hover:bg-[#e55a24] hover:shadow-lg hover:shadow-[#ff6b3540]">
+                    Let's Talk Now
+                    <i class="ti ti-headphones ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <img src="./assets/images/hero-2-img-2.png" alt="IT Infrastructure" class="absolute bottom-0 right-0 z-10 hidden h-[95%] w-auto object-cover xl:block" />
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide hero-slide" style="background-image: url(&quot;./assets/images/hero-slider-1-bg-3.jpg&quot;)">
+            <div class="container">
+              <div class="hero-content relative z-10 max-w-3xl py-32 md:py-40 xl:py-48">
+                <span class="mb-4 inline-block text-xl font-semibold text-secondary">Trusted Nationwide IT Experts</span>
+                <h1 class="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">Scalable and Innovative IT Solutions</h1>
+                <p class="mb-8 text-xl text-white opacity-90">Providing Advanced IT Support & Infrastructure Solutions Tailored to Your Needs</p>
+                <div class="flex flex-wrap gap-4">
+                  <a href="contact.html" class="inline-flex items-center rounded-full bg-secondary px-6 py-3 font-medium text-white transition-all hover:-translate-y-1 hover:bg-[#e55a24] hover:shadow-lg hover:shadow-[#ff6b3540]">
+                    Let's Talk Now
+                    <i class="ti ti-headphones ml-2"></i>
+                  </a>
+                </div>
+              </div>
+              <img src="./assets/images/hero-2-img-1.webp" alt="IT Experts" class="absolute bottom-0 right-0 z-10 hidden h-[95%] w-auto object-cover xl:block" />
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- ==================== Client Logo Section ==================== -->
+    <section class="client-logo-section">
+      <div class="container">
+        <div class="rounded-xl bg-white p-8 shadow-lg" data-aos="fade-up">
+          <div class="swiper client-swiper">
+            <div class="swiper-wrapper">
+              <!-- Client logos 1-50 -->
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-1.png" alt="Client 1" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-2.png" alt="Client 2" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-3.png" alt="Client 3" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-4.png" alt="Client 4" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-5.png" alt="Client 5" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-6.png" alt="Client 6" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-7.png" alt="Client 7" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-8.png" alt="Client 8" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-9.png" alt="Client 9" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-10.png" alt="Client 10" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-11.png" alt="Client 11" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-12.png" alt="Client 12" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-13.png" alt="Client 13" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-14.png" alt="Client 14" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-15.png" alt="Client 15" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-16.png" alt="Client 16" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-17.png" alt="Client 17" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-18.png" alt="Client 18" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-20.png" alt="Client 20" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-21.png" alt="Client 21" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-22.png" alt="Client 22" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-23.png" alt="Client 23" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-24.png" alt="Client 24" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-25.png" alt="Client 25" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-26.png" alt="Client 26" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-27.png" alt="Client 27" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-28.png" alt="Client 28" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-29.png" alt="Client 29" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-30.png" alt="Client 30" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-31.png" alt="Client 31" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-32.png" alt="Client 32" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-33.png" alt="Client 33" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-34.png" alt="Client 34" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-35.png" alt="Client 35" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-36.png" alt="Client 36" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-37.png" alt="Client 37" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-38.png" alt="Client 38" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-39.png" alt="Client 39" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-40.png" alt="Client 40" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-41.png" alt="Client 41" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-42.png" alt="Client 42" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-43.png" alt="Client 43" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-44.png" alt="Client 44" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-45.png" alt="Client 45" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-46.png" alt="Client 46" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-47.png" alt="Client 47" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-48.png" alt="Client 48" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-49.png" alt="Client 49" />
+                </div>
+              </div>
+              <div class="swiper-slide text-center">
+                <div class="flex items-center justify-center">
+                  <img class="client-logo h-16 w-auto" src="./assets/images/client-50.png" alt="Client 50" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Completely Revamped Service Section ==================== -->
+    <!-- ==================== Completely Revamped Service Section ==================== -->
+    <section class="service-section" id="services">
+      <div class="container">
+        <div class="mx-auto mb-16 max-w-3xl text-center" data-aos="fade-up">
+          <span class="mb-2 inline-block text-lg font-semibold text-primary">End-to-End IT Solutions for Your Business</span>
+          <h2 class="mb-4 text-4xl font-bold text-dark">Our Comprehensive IT Services</h2>
+          <p class="text-lg">We specialize in delivering tailored IT solutions that keep your operations running seamlessly, from technical support to network infrastructure and beyond.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="100">
+          <!-- Technical Support Card -->
+          <div class="service-card service-card--technical" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-card__header">
+              <h3 class="service-card__title">Technical Support</h3>
+              <p class="service-card__subtitle">Expert IT assistance when you need it most</p>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__description">Providing nationwide IT support to banks, retail, and enterprises, ensuring seamless business operations with minimal downtime during business hours.</p>
+              <ul class="service-card__features">
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Business Hours Support (9AM-6PM)</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>On-site Technical Assistance</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Hardware & Software Troubleshooting</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Preventive Maintenance</span>
+                </li>
+              </ul>
+              <a href="service-technical-support.html" class="service-card__link">
+                Learn More
+                <i class="ti ti-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Banking & Retail Card -->
+          <div class="service-card service-card--banking" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card__header">
+              <h3 class="service-card__title">Banking & Retail</h3>
+              <p class="service-card__subtitle">Specialized solutions for financial and retail sectors</p>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__description">We specialize in installation, maintenance, and technical support for POS systems and ATMs, ensuring reliable operation for your business operations.</p>
+              <ul class="service-card__features">
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>POS System Installation & Support</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>ATM Deployment & Maintenance</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Payment System Integration</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Security & Compliance Solutions</span>
+                </li>
+              </ul>
+              <a href="service-banking-retail.html" class="service-card__link">
+                Learn More
+                <i class="ti ti-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Networking & Infrastructure Card -->
+          <div class="service-card service-card--networking" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card__header">
+              <h3 class="service-card__title">Networking & Infrastructure</h3>
+              <p class="service-card__subtitle">Building robust connectivity solutions</p>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__description">Offering structured cabling, network troubleshooting, and system integration for optimized connectivity and performance across your organization.</p>
+              <ul class="service-card__features">
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Structured Cabling Installation</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Network Design & Implementation</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Router & Switch Configuration</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Wireless Network Solutions</span>
+                </li>
+              </ul>
+              <a href="service-networking-infrastructure.html" class="service-card__link">
+                Learn More
+                <i class="ti ti-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Call Management Card -->
+          <div class="service-card service-card--call" data-aos="fade-up" data-aos-delay="400">
+            <div class="service-card__header">
+              <h3 class="service-card__title">Call Management</h3>
+              <p class="service-card__subtitle">Optimizing your communication systems</p>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__description">Delivering streamlined call routing, real-time monitoring, and system configuration to ensure efficient and reliable communication flow.</p>
+              <ul class="service-card__features">
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Call Routing & Distribution</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Real-Time Call Monitoring</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Helpdesk Ticket Management</span>
+                </li>
+                <li class="service-card__feature">
+                  <i class="ti ti-check-circle"></i>
+                  <span>Call Analytics & Reporting</span>
+                </li>
+              </ul>
+              <a href="service-call-management.html" class="service-card__link">
+                Learn More
+                <i class="ti ti-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Enhanced About Section ==================== -->
+    <section class="about-section">
+      <div class="about-section__pattern"></div>
+      <div class="container">
+        <div class="about-section__content">
+          <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+            <div data-aos="fade-right">
+              <span class="mb-2 inline-block text-lg font-semibold text-primary">Empowering Businesses with Reliable IT Solutions</span>
+              <h2 class="mb-4 text-4xl font-bold text-dark">For over a decade, we've provided seamless IT services across industries</h2>
+              <p class="mb-8 text-lg">Smartcomp Solutions ensures business continuity with expert technical support, secure network infrastructure, and robust POS & ATM solutions. Our commitment to precision and innovation keeps your systems running smoothly, safeguarding critical data and optimizing operational efficiency.</p>
+              <a href="about-us.html" class="inline-flex items-center rounded-full bg-primary px-6 py-3 font-medium text-white transition-all hover:-translate-y-1 hover:bg-[#4029e6] hover:shadow-lg hover:shadow-[#563aff40]">
+                <i class="ti ti-arrow-right mr-2"></i>
+                Find Out More
+              </a>
+            </div>
+
+            <div class="about-image-grid" data-aos="fade-left">
+              <div class="about-image about-image-1">
+                <img src="./assets/images/about-img-6.jpg" alt="About Smartcomp" />
+              </div>
+              <div class="about-image about-image-2">
+                <img src="./assets/images/about-img-2.jpg" alt="IT Services" />
+              </div>
+              <div class="about-image about-image-3">
+                <img src="./assets/images/about-img-5.jpg" alt="IT Support" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Enhanced Features Section ==================== -->
+    <section class="features-section">
+      <div class="container">
+        <div class="mx-auto mb-16 max-w-3xl text-center" data-aos="fade-up">
+          <span class="mb-2 inline-block text-lg font-semibold text-primary">Empowering Businesses with Cutting-Edge IT Solutions</span>
+          <h2 class="mb-4 text-4xl font-bold text-dark">Partner with Smartcomp Solutions for seamless IT services</h2>
+          <p class="text-lg">We deliver comprehensive IT solutions tailored to your business needs, ensuring efficiency, reliability, and innovation. Our expertise spans banking, retail, and enterprise IT, making technology work for you.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Feature 1 -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card__icon bg-secondary">
+              <img src="./assets/images/icon-28.png" alt="Reliable Technical Support" width="34" height="34" />
+            </div>
+            <h3 class="feature-card__title">Reliable Technical Support</h3>
+            <p>Nationwide IT support and maintenance services to keep your business running smoothly.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card__icon bg-danger">
+              <img src="./assets/images/icon-29.png" alt="Efficient Network Solutions" width="34" height="34" />
+            </div>
+            <h3 class="feature-card__title">Efficient Network Solutions</h3>
+            <p>Structured cabling and networking services to enhance connectivity and performance.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card__icon bg-success">
+              <img src="./assets/images/icon-30.png" alt="Advanced POS & ATM Services" width="34" height="34" />
+            </div>
+            <h3 class="feature-card__title">Advanced POS & ATM Services</h3>
+            <p>Comprehensive installation, maintenance, and support for banking and retail solutions.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card__icon bg-warning">
+              <img src="./assets/images/icon-31.png" alt="End-to-End Project Implementation" width="34" height="34" />
+            </div>
+            <h3 class="feature-card__title">End-to-End Implementation</h3>
+            <p>Expert execution of IT infrastructure projects, ensuring seamless deployment and integration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Enhanced Work Process Section ==================== -->
+    <section class="process-section">
+      <div class="container">
+        <div class="process-section__content">
+          <div class="mx-auto mb-16 max-w-3xl text-center" data-aos="fade-up">
+            <span class="mb-2 inline-block text-lg font-semibold text-secondary">Our Approach to IT Excellence</span>
+            <h2 class="mb-4 text-4xl font-bold">How Smartcomp Solutions Empowers Your Business</h2>
+            <p class="text-lg opacity-90">Tailored IT solutions designed to optimize efficiency, enhance security, and drive success.</p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <!-- Process 1 -->
+            <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="process-card__number">01</div>
+              <h3 class="process-card__title">Consultation & Assessment</h3>
+              <p>We start by understanding your unique business needs, ensuring our solutions align perfectly with your goals.</p>
+            </div>
+
+            <!-- Process 2 -->
+            <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="process-card__number">02</div>
+              <h3 class="process-card__title">Strategy & Planning</h3>
+              <p>Our experts develop innovative IT strategies, leveraging the latest technology to deliver the best solutions for your industry.</p>
+            </div>
+
+            <!-- Process 3 -->
+            <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="process-card__number">03</div>
+              <h3 class="process-card__title">Implementation & Testing</h3>
+              <p>We deploy, configure, and rigorously test systems to ensure smooth, secure, and efficient operations.</p>
+            </div>
+
+            <!-- Process 4 -->
+            <div class="process-card" data-aos="fade-up" data-aos-delay="400">
+              <div class="process-card__number">04</div>
+              <h3 class="process-card__title">Deployment & Support</h3>
+              <p>After final approval, we execute installations seamlessly and provide continuous maintenance and technical support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== Enhanced Service Showcase Section ==================== -->
+    <section class="showcase-section">
+      <div class="container">
+        <div class="mx-auto mb-16 max-w-3xl text-center" data-aos="fade-up">
+          <span class="mb-2 inline-block text-lg font-semibold text-secondary">Delivering Cutting-Edge IT Solutions, Nationwide & Beyond</span>
+          <h2 class="mb-4 text-4xl font-bold text-dark">With 10+ years of expertise, we've completed thousands of IT projects</h2>
+          <p class="text-lg">With our comprehensive IT solutions, we ensure your success—effortless, hassle-free, and cutting-edge.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4" data-aos="fade-up" data-aos-delay="100">
+          <!-- Showcase Item 1 -->
+          <div class="showcase-item" data-category="technical">
+            <div class="showcase-item__image">
+              <img src="./assets/images/itremote.png" alt="Nationwide onsite & remote IT support" />
+            </div>
+            <div class="showcase-item__content">
+              <h3 class="showcase-item__title">Nationwide onsite & remote IT support</h3>
+              <div class="showcase-item__icon">
+                <i class="ti ti-arrow-right"></i>
+              </div>
+            </div>
+            <a href="service-technical-support.html" class="absolute inset-0 z-10" aria-label="Learn more about Nationwide onsite & remote IT support"></a>
+          </div>
+
+          <!-- Showcase Item 2 -->
+          <div class="showcase-item" data-category="banking">
+            <div class="showcase-item__image">
+              <img src="./assets/images/posrev.png" alt="POS preventive & corrective maintenance" />
+            </div>
+            <div class="showcase-item__content">
+              <h3 class="showcase-item__title">POS preventive & corrective maintenance</h3>
+              <div class="showcase-item__icon">
+                <i class="ti ti-arrow-right"></i>
+              </div>
+            </div>
+            <a href="service-banking-retail.html" class="absolute inset-0 z-10" aria-label="Learn more about POS preventive & corrective maintenance"></a>
+          </div>
+
+          <!-- Showcase Item 3 -->
+          <div class="showcase-item" data-category="banking">
+            <div class="showcase-item__image">
+              <img src="./assets/images/atmmaintenance.png" alt="Nationwide ATM deployment & maintenance" />
+            </div>
+            <div class="showcase-item__content">
+              <h3 class="showcase-item__title">Nationwide ATM deployment & maintenance</h3>
+              <div class="showcase-item__icon">
+                <i class="ti ti-arrow-right"></i>
+              </div>
+            </div>
+            <a href="service-banking-retail.html" class="absolute inset-0 z-10" aria-label="Learn more about Nationwide ATM deployment & maintenance"></a>
+          </div>
+
+          <!-- Showcase Item 4 -->
+          <div class="showcase-item" data-category="network">
+            <div class="showcase-item__image">
+              <img src="./assets/images/routerswitch.png" alt="Router & switch setup and configuration" />
+            </div>
+            <div class="showcase-item__content">
+              <h3 class="showcase-item__title">Router & switch setup and configuration</h3>
+              <div class="showcase-item__icon">
+                <i class="ti ti-arrow-right"></i>
+              </div>
+            </div>
+            <a href="service-networking-infrastructure.html" class="absolute inset-0 z-10" aria-label="Learn more about Router & switch setup and configuration"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keep original footer -->
+    <include-footer />
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="hover:bg-primary-dark invisible fixed bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white opacity-0 shadow-lg transition-all">
+      <i class="ti ti-chevron-up text-xl"></i>
+    </button>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
+
+    <!-- Main JavaScript -->
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+
+      // Initialize Hero Slider
+      const heroSwiper = new Swiper(".hero-swiper", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true,
+        },
+      });
+
+      // Initialize Client Logo Slider
+      const clientSwiper = new Swiper(".client-swiper", {
+        slidesPerView: 2,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
+          1280: {
+            slidesPerView: 6,
+          },
+        },
+      });
+
+      // Service Tabs
+      const serviceTabs = document.querySelectorAll(".service-tab");
+      const showcaseItems = document.querySelectorAll(".showcase-item");
+
+      serviceTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Remove active class from all tabs
+          serviceTabs.forEach((t) => t.classList.remove("active"));
+
+          // Add active class to clicked tab
+          tab.classList.add("active");
+
+          const category = tab.getAttribute("data-tab");
+
+          // Show/hide items based on category
+          showcaseItems.forEach((item) => {
+            if (category === "all" || item.getAttribute("data-category") === category) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Back to Top Button
+      const backToTopButton = document.getElementById("backToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove("opacity-0", "invisible");
+          backToTopButton.classList.add("opacity-100", "visible");
+        } else {
+          backToTopButton.classList.add("opacity-0", "invisible");
+          backToTopButton.classList.remove("opacity-100", "visible");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
